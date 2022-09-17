@@ -1,0 +1,24 @@
+﻿  compilation object save succeeded; see C:\Users\Paulo\git\space-game\SpaceGame\SpaceGame\Shaders\Pixel.cso
+  compilation object save succeeded; see C:\Users\Paulo\git\space-game\SpaceGame\SpaceGame\Shaders\Vertex.cso
+  Engine.cpp
+  Food.cpp
+  Game.cpp
+  Geometry.cpp
+  Ghost.cpp
+  Graphics.cpp
+  Home.cpp
+  Image.cpp
+  Level1.cpp
+  Level2.cpp
+  Object.cpp
+  PacMan.cpp
+  Pivot.cpp
+  Player.cpp
+  Renderer.cpp
+  Scene.cpp
+  Sprite.cpp
+  Texture.cpp
+  Timer.cpp
+  Window.cpp
+  Gerando Código...
+  SpaceGame.vcxproj -> C:\Users\Paulo\git\space-game\SpaceGame\x64\Debug\SpaceGame.exe
