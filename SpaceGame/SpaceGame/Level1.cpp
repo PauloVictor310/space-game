@@ -10,12 +10,14 @@
 **********************************************************************************/
 
 #include "Engine.h"
+#include "Etther.h"
 #include "Home.h"
 #include "Level1.h"
 #include "Level2.h"
 #include "Player.h"
 #include "Pivot.h"
 #include "Cannon.h"
+#include "Wall.h"
 #include <string>
 #include <fstream>
 using std::ifstream;
@@ -45,6 +47,30 @@ void Level1::Init()
     cannon = new Cannon(-36, -31, 36, 31);
     cannon->MoveTo(914, 436);
     scene->Add(cannon, STATIC);
+
+    // -----------------------------------------
+    // posição das paredes
+
+    Wall* wall;
+    wall = new Wall(0, 0, 960, 8);
+    wall->MoveTo(0.0f, 0.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 10, 374);
+    wall->MoveTo(window->CenterX() - 24.0f, 8.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 13, 374);
+    wall->MoveTo(window->CenterX() + 470.0f, 8.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 960, 10);
+    wall->MoveTo(0.0f, window->CenterY() + 22.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 13, 328);
+    wall->MoveTo(window->CenterX() + 470.0f, window->CenterY() + 32.0f);
+    scene->Add(wall, STATIC);
 
     // cria pontos de mudança de direção
     Pivot * pivot;

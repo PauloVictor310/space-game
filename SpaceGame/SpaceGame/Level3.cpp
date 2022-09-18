@@ -10,6 +10,7 @@
 **********************************************************************************/
 
 #include "Engine.h"
+#include "Etther.h"
 #include "Home.h"
 #include "Level3.h"
 #include "Level4.h"
@@ -17,6 +18,7 @@
 #include "Pivot.h"
 #include "Orb.h"
 #include "Cannon.h"
+#include "Wall.h"
 #include <string>
 #include <fstream>
 using std::ifstream;
@@ -50,6 +52,38 @@ void Level3::Init()
     cannon = new Cannon(-34.5, -27.5, 34.5, 27.5);
     cannon->MoveTo(926, 399);
     scene->Add(cannon, STATIC);
+
+    // -----------------------------------------
+    // posição das paredes
+
+    Wall* wall;
+    wall = new Wall(0, 0, 8, 365);
+    wall->MoveTo(0.0f, 0.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 10, 365);
+    wall->MoveTo(window->CenterX() + 9.0f, 0.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 479, 10);
+    wall->MoveTo(9.0f, window->CenterY());
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 460, 10);
+    wall->MoveTo(window->CenterX() + 19.0f, window->CenterY());
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 8, 347);
+    wall->MoveTo(0.0f, window->CenterY() + 5.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 10, 347);
+    wall->MoveTo(window->CenterX() + 9.0f, window->CenterY() + 5.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 960, 8);
+    wall->MoveTo(0.0f, window->CenterY() + 352.0f);
+    scene->Add(wall, STATIC);
 
     // cria orb
     Orb* orb = new Orb(BLUE);
