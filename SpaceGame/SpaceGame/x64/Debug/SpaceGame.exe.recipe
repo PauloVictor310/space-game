@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\user\dev\learning\space-game\SpaceGame\x64\Debug\SpaceGame.exe</FullPath>
+      <FullPath>C:\Users\guilh\Dev\space-game\SpaceGame\x64\Debug\SpaceGame.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>E:\user\dev\learning\space-game\SpaceGame\SpaceGame\Shaders\Pixel.cso</FullPath>
+      <FullPath>C:\Users\guilh\Dev\space-game\SpaceGame\SpaceGame\Shaders\Pixel.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>E:\user\dev\learning\space-game\SpaceGame\SpaceGame\Shaders\Vertex.cso</FullPath>
+      <FullPath>C:\Users\guilh\Dev\space-game\SpaceGame\SpaceGame\Shaders\Vertex.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

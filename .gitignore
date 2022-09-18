@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+SpaceGame/SpaceGame/x64/Debug/
+SpaceGame/SpaceGame/Shaders/
+SpaceGame/x64/Debug/
+SpaceGame/.vs/SpaceGame/v17/.suo
+SpaceGame/.vs/SpaceGame/FileContentIndex/

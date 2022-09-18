@@ -17,10 +17,10 @@
 
 Player::Player()
 {
-    spriteL = new Sprite("Resources/PacManL.png");
-    spriteR = new Sprite("Resources/PacManR.png");
-    spriteU = new Sprite("Resources/PacManU.png");
-    spriteD = new Sprite("Resources/PacManD.png");
+    spriteL = new Sprite("Resources/spaceship_red_left.png");
+    spriteR = new Sprite("Resources/spaceship_red_right.png");
+    spriteU = new Sprite("Resources/spaceship_red_top.png");
+    spriteD = new Sprite("Resources/spaceship_red_down.png");
 
     // imagem do pacman é 48x48 (com borda transparente de 4 pixels)
     BBox(new Rect(-20, -20, 20, 20));

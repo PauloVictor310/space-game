@@ -28,7 +28,7 @@ void Level1::Init()
     scene = new Scene();
 
     // cria background
-    backg = new Sprite("Resources/Level1.jpg");
+    backg = new Sprite("Resources/phase_1_completed.png");
 
     // cria jogador
     Player * player = new Player();

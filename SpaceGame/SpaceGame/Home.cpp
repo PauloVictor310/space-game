@@ -17,7 +17,7 @@
 
 void Home::Init()
 {
-    backg = new Sprite("Resources/TitleScreen.jpg");
+    backg = new Sprite("Resources/init_screen.png");
 }
 
 // ------------------------------------------------------------------------------
