@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Exercício sobre detecção de colisão
+// Descrição:   Exercú€io sobre detecção de colisão
 //
 **********************************************************************************/
 
