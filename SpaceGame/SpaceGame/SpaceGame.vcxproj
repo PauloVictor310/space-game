@@ -173,6 +173,10 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Level2.cpp" />
+    <ClCompile Include="Level3.cpp" />
+    <ClCompile Include="Level4.cpp" />
+    <ClCompile Include="LevelLose.cpp" />
+    <ClCompile Include="LevelWin.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PacMan.cpp" />
     <ClCompile Include="Pivot.cpp" />
@@ -195,6 +199,10 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Level2.h" />
+    <ClInclude Include="Level3.h" />
+    <ClInclude Include="Level4.h" />
+    <ClInclude Include="LevelLose.h" />
+    <ClInclude Include="LevelWin.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PacMan.h" />
     <ClInclude Include="Pivot.h" />

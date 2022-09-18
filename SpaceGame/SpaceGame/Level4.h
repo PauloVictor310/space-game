@@ -1,6 +1,6 @@
 /**********************************************************************************
 // Level2 (Arquivo de Cabeçalho)
-// 
+//
 // Criação:     18 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _SPACE_LEVEL2_H_
-#define _SPACE_LEVEL2_H_
+#ifndef _SPACE_LEVEl4_H_
+#define _SPACE_LEVEL4_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões
@@ -21,11 +21,11 @@
 
 // ------------------------------------------------------------------------------
 
-class Level2 : public Game
+class Level4 : public Game
 {
 private:
-    Sprite * backg = nullptr;       // background
-    Scene  * scene = nullptr;       // gerenciado de cena
+    Sprite* backg = nullptr;       // background
+    Scene* scene = nullptr;       // gerenciado de cena
 
     bool viewBBox = false;          // habilita visualização da bounding box
     bool ctrlKeyB = false;          // controle da tecla B

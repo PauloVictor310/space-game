@@ -1,6 +1,6 @@
 /**********************************************************************************
-// Level2 (Código Fonte) 
-// 
+// Level2 (Código Fonte)
+//
 // Criação:     18 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
@@ -11,8 +11,8 @@
 
 #include "Engine.h"
 #include "Home.h"
-#include "Level2.h"
 #include "Level3.h"
+#include "Level4.h"
 #include "Player.h"
 #include "Pivot.h"
 #include <string>
@@ -22,20 +22,20 @@ using std::string;
 
 // ------------------------------------------------------------------------------
 
-void Level2::Init()
+void Level3::Init()
 {
     // cria gerenciador de cena
     scene = new Scene();
 
     // cria background
-    backg = new Sprite("Resources/phase_2_completed.png");
+    backg = new Sprite("Resources/phase_3_completed.png");
 
     // cria jogador
-    Player * player = new Player();
+    Player* player = new Player();
     scene->Add(player, MOVING);
 
     // cria pontos de mudança de direção
-    Pivot * pivot;
+    Pivot* pivot;
     bool left, right, up, down;
     float posX, posY;
     ifstream fin;
@@ -67,7 +67,7 @@ void Level2::Init()
 
 // ------------------------------------------------------------------------------
 
-void Level2::Finalize()
+void Level3::Finalize()
 {
     delete backg;
     delete scene;
@@ -75,7 +75,7 @@ void Level2::Finalize()
 
 // ------------------------------------------------------------------------------
 
-void Level2::Update()
+void Level3::Update()
 {
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
@@ -93,10 +93,10 @@ void Level2::Update()
         // volta para a tela de abertura
         Engine::Next<Home>();
     }
-    else if (window->KeyDown('M'))
+    else if (window->KeyDown('K'))
     {
         // passa manualmente para o próximo nível
-        Engine::Next<Level3>();
+        Engine::Next<Level4>();
     }
     else
     {
@@ -108,7 +108,7 @@ void Level2::Update()
 
 // ------------------------------------------------------------------------------
 
-void Level2::Draw()
+void Level3::Draw()
 {
     // desenha cena
     backg->Draw(float(window->CenterX()), float(window->CenterY()), Layer::BACK);
