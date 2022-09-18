@@ -15,6 +15,7 @@
 #include "Level2.h"
 #include "Player.h"
 #include "Pivot.h"
+#include "Cannon.h"
 #include <string>
 #include <fstream>
 using std::ifstream;
@@ -33,6 +34,17 @@ void Level1::Init()
     // cria jogador
     Player * player = new Player();
     scene->Add(player, MOVING);
+
+    //Cria e posiciona bbox dos canhões
+    Cannon* cannon;
+    //left cannon
+    cannon = new Cannon(-35, -34, 35, 34);
+    cannon->MoveTo(34, 34);
+    scene->Add(cannon, STATIC);
+    //right cannon
+    cannon = new Cannon(-36, -31, 36, 31);
+    cannon->MoveTo(914, 436);
+    scene->Add(cannon, STATIC);
 
     // cria pontos de mudança de direção
     Pivot * pivot;

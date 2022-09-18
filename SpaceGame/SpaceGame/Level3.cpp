@@ -16,6 +16,7 @@
 #include "Player.h"
 #include "Pivot.h"
 #include "Orb.h"
+#include "Cannon.h"
 #include <string>
 #include <fstream>
 using std::ifstream;
@@ -34,6 +35,21 @@ void Level3::Init()
     // cria jogador
     Player* player = new Player();
     scene->Add(player, MOVING);
+
+    //Cria e posiciona bbox dos canhões
+    Cannon* cannon;
+    //corner left cannon
+    cannon = new Cannon(-32, -27, 32, 27);
+    cannon->MoveTo(43, 26);
+    scene->Add(cannon, STATIC);
+    //bottom left cannon
+    cannon = new Cannon(-35, -23, 35, 23);
+    cannon->MoveTo(44, 464);
+    scene->Add(cannon, STATIC);
+    //right down cannon
+    cannon = new Cannon(-34.5, -27.5, 34.5, 27.5);
+    cannon->MoveTo(926, 399);
+    scene->Add(cannon, STATIC);
 
     // cria orb
     Orb* orb = new Orb(BLUE);

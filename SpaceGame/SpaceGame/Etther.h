@@ -22,7 +22,8 @@ enum EttherObjects
     SPECIAL,
     PIVOT,
     ORB,
-    WALL
+    WALL,
+    CANNON
 };
 
 // ------------------------------------------------------------------------------
