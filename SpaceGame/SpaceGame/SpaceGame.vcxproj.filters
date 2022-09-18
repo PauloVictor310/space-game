@@ -1,48 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Game">
-      <UniqueIdentifier>{1ae348bb-6c85-430e-b8bb-1245356defe9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Arquivos de Recurso">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Game\Arquivos de Cabeçalho">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Game\Arquivos de Origem">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{5682b627-5540-4d66-9a3d-3d42dcbc562f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Arquivos de Cabeçalho">
-      <UniqueIdentifier>{f34d37b0-2a7f-4ef5-a48d-acc44de2c988}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Arquivos de Origem">
-      <UniqueIdentifier>{ca468bfc-08c9-47b4-bc10-cb127297b55e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Arquivos de Sombreamento">
-      <UniqueIdentifier>{6eefbe06-0d99-4677-b4ce-54bd3cc97d9d}</UniqueIdentifier>
-    </Filter>
+    <FxCompile Include="Pixel.hlsl">
+      <Filter>Engine\Arquivos de Sombreamento</Filter>
+    </FxCompile>
+    <FxCompile Include="Vertex.hlsl">
+      <Filter>Engine\Arquivos de Sombreamento</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
+    </ClCompile>
     <ClCompile Include="Food.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Ghost.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
+    </ClCompile>
     <ClCompile Include="Home.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Level1.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Level2.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Level3.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Level4.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLose.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelWin.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Orb.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="PacMan.cpp">
@@ -54,57 +66,23 @@
     <ClCompile Include="Player.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Geometry.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Engine\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
+    <ClCompile Include="Renderer.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="Sprite.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="Texture.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
-    <ClCompile Include="Level3.cpp">
-      <Filter>Game\Arquivos de Origem</Filter>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Level4.cpp">
-      <Filter>Game\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelWin.cpp">
-      <Filter>Game\Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelLose.cpp">
-=======
-    <ClCompile Include="Orb.cpp">
->>>>>>> Stashed changes
-      <Filter>Game\Arquivos de Origem</Filter>
+    <ClCompile Include="Window.cpp">
+      <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,12 +98,6 @@
     <ClInclude Include="Graphics.h">
       <Filter>Engine\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>Engine\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="Food.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -135,13 +107,37 @@
     <ClInclude Include="Home.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Engine\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
     <ClInclude Include="Level1.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Level2.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Level3.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Level4.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLose.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelWin.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Engine\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Orb.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
     <ClInclude Include="PacMan.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Pivot.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
@@ -149,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Engine\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Engine\Arquivos de Cabeçalho</Filter>
@@ -168,31 +170,6 @@
     <ClInclude Include="Window.h">
       <Filter>Engine\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Engine\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Pivot.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-<<<<<<< Updated upstream
-    <ClInclude Include="Level3.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Level4.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelWin.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelLose.h">
-=======
-    <ClInclude Include="Orb.h">
->>>>>>> Stashed changes
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FoodL1.txt">
@@ -209,12 +186,30 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Vertex.hlsl">
-      <Filter>Engine\Arquivos de Sombreamento</Filter>
-    </FxCompile>
-    <FxCompile Include="Pixel.hlsl">
-      <Filter>Engine\Arquivos de Sombreamento</Filter>
-    </FxCompile>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{d025d6d0-ae57-43d8-b6f5-caedb65e8fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{c4321174-76eb-4772-be62-bd4d2cc97d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Arquivos de Cabeçalho">
+      <UniqueIdentifier>{ea6baf70-06e2-47b5-9ad6-87831dd0a397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Arquivos de Origem">
+      <UniqueIdentifier>{df8e6f2d-01b1-473c-b83e-efcd96cb6bed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Arquivos de Sombreamento">
+      <UniqueIdentifier>{0d5ef952-9cff-4a1a-aba7-d970f97f5485}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Arquivos de Cabeçalho">
+      <UniqueIdentifier>{a93f6abb-dcd0-466b-ad53-8fa65bf1a9c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Arquivos de Origem">
+      <UniqueIdentifier>{d66640bf-7224-4c4b-9233-500a307453ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Arquivos de Recurso">
+      <UniqueIdentifier>{482a4438-343a-4995-a685-066be8761cb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
