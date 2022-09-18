@@ -1,11 +1,11 @@
 /**********************************************************************************
-// Level2 (Código Fonte)
+// Level4 (Arquivo de Cabeçalho)
 //
 // Criação:     18 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nú“el 2 do jogo PacMan
+// Descrição:   Nível 4 do jogo Etther
 //
 **********************************************************************************/
 

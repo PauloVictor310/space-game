@@ -5,12 +5,12 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Tela de abertura do jogo PacMan
+// Descrição:   Tela de abertura do jogo Etther
 //
 **********************************************************************************/
 
-#ifndef _SPACE_HOME_H_
-#define _SPACE_HOME_H_
+#ifndef _ETTHER_HOME_H_
+#define _ETTHER_HOME_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões

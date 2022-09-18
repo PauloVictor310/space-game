@@ -5,11 +5,11 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Player do jogo PacMan
+// Descrição:   Player do jogo Etther
 //
 **********************************************************************************/
 
-#include "PacMan.h"
+#include "Etther.h"
 #include "Player.h"
 #include "Pivot.h"
 #include "Orb.h"
@@ -94,7 +94,7 @@ void Player::OnCollision(Object * obj)
     if (obj->Type() == PIVOT)
         PivotCollision(obj);
 
-    if (obj->Type() == ORB);
+    if (obj->Type() == ORB)
         OrbCollision(obj);
 }
 

@@ -5,17 +5,17 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Player do jogo PacMan
+// Descrição:   Player do jogo Etther
 //
 **********************************************************************************/
 
-#ifndef _PACMAN_PLAYER_H_
-#define _PACMAN_PLAYER_H_
+#ifndef _ETTHER_PLAYER_H_
+#define _ETTHER_PLAYER_H_
 
 // ---------------------------------------------------------------------------------
 // Inclusões
 
-#include "Types.h"                      // tipos especúƒicos da engine
+#include "Types.h"                      // tipos especíƒicos da engine
 #include "Object.h"                     // interface de Object
 #include "Sprite.h"                     // interface de Sprites
 

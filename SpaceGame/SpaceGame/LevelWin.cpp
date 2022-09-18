@@ -1,11 +1,11 @@
 /**********************************************************************************
-// Level2 (Código Fonte)
+// LevelWin (Arquivo de Cabeçalho)
 //
 // Criação:     18 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 2 do jogo PacMan
+// Descrição:   Tela de vitória do jogo Etther
 //
 **********************************************************************************/
 

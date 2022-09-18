@@ -1,27 +1,28 @@
 /**********************************************************************************
-// PacMan (Arquivo de Cabeçalho)
+// Etther (Arquivo de Cabeçalho)
 //
 // Criação:     01 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Exercú€io sobre detecção de colisão
+// Descrição:   Uso da classe Scene para gerenciar objetos e tratar colisão
 //
 **********************************************************************************/
 
-#ifndef _PACMAN_H_
-#define _PACMAN_H_
+#ifndef _ETTHER_H_
+#define _ETTHER_H_
 
 // ------------------------------------------------------------------------------
 
-enum PacManObjects
+enum EttherObjects
 {
     PLAYER,
     GHOST,
     FOOD,
     SPECIAL,
     PIVOT,
-    ORB
+    ORB,
+    WALL
 };
 
 // ------------------------------------------------------------------------------

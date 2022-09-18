@@ -1,37 +1,54 @@
 /**********************************************************************************
-// Ghost (Código Fonte)
-// 
-// Criação:     01 Jan 2013
-// Atualização: 25 Ago 2021
+// Wall (Arquivo de Cabeçalho)
+//
+// Criação:     18 Set 2022
+//
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Fantasmas do PacMan
+// Descrição:   Parede do jogo Etther
 //
 **********************************************************************************/
 
+#include "Wall.h"
 #include "Etther.h"
-#include "Player.h"
-#include "Ghost.h"
 
 // ---------------------------------------------------------------------------------
 
-Ghost::Ghost(Player * p)
+Wall::Wall(float x1, float y1, float x2, float y2)
 {
-    type = GHOST;
+    // bbox da parede
+    BBox(new Rect(x1, y1, x2, y2));
+
+    // velocidades iniciais
+    velX = 0.0f;
+    velY = 0.0f;
+
+    // tipo do objeto
+    type = WALL;
 }
 
 // ---------------------------------------------------------------------------------
 
-Ghost::~Ghost()
+Wall::~Wall()
 {
 
 }
 
 // ---------------------------------------------------------------------------------
 
-void Ghost::Update()
+void Wall::Update()
+{
+
+}
+
+void Wall::Draw()
 {
 
 }
 
 // ---------------------------------------------------------------------------------
+
+void Wall::OnCollision(Object* obj)
+{
+
+}

@@ -5,12 +5,12 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 1 do jogo PacMan
+// Descrição:   Nível 1 do jogo Etther
 //
 **********************************************************************************/
 
-#ifndef _SPACE_LEVEL1_H_
-#define _SPACE_LEVEL1_H_
+#ifndef _ETTHER_LEVEL1_H_
+#define _ETTHER_LEVEL1_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões
@@ -24,17 +24,17 @@
 class Level1 : public Game
 {
 private:
-    Sprite * backg = nullptr;       // background
-    Scene  * scene = nullptr;       // gerenciador de cena
+    Sprite * backg = nullptr;      // background
+    Scene  * scene = nullptr;      // gerenciador de cena
 
-    bool viewBBox = false;          // habilita visualização da bounding box
-    bool ctrlKeyB = false;          // controle da tecla B
+    bool viewBBox = false;         // habilita visualização da bounding box
+    bool ctrlKeyB = false;         // controle da tecla B
 
 public:
-    void Init();                    // inicializa jogo
-    void Update();                  // atualiza lógica do jogo
-    void Draw();                    // desenha jogo
-    void Finalize();                // finaliza jogo
+    void Init();                   // inicializa jogo
+    void Update();                 // atualiza lógica do jogo
+    void Draw();                   // desenha jogo
+    void Finalize();               // finaliza jogo
 };
 
 // -----------------------------------------------------------------------------

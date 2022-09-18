@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nú“el 1 do jogo PacMan
+// Descrição:   Nível 1 do jogo Etther
 //
 **********************************************************************************/
 

@@ -1,16 +1,16 @@
 /**********************************************************************************
-// Level2 (Arquivo de Cabeçalho)
+// LevelLose (Arquivo de Cabeçalho)
 //
 // Criação:     18 Jan 2013
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 2 do jogo PacMan
+// Descrição:   Tela de derrota do jogo Etther
 //
 **********************************************************************************/
 
-#ifndef _SPACE_LEVELLOSE_H_
-#define _SPACE_LEVELLOSE_H_
+#ifndef _ETTHER_LEVELLOSE_H_
+#define _ETTHER_LEVELLOSE_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões
@@ -25,15 +25,14 @@ class LevelLose : public Game
 {
 private:
     Sprite* backg = nullptr;       // background
-    Scene* scene = nullptr;       // gerenciado de cena
-
+    Scene* scene = nullptr;        // gerenciado de cena
 
 public:
 
-    void Init();                    // inicializa jogo
-    void Update();                  // atualiza lógica do jogo
-    void Draw();                    // desenha jogo
-    void Finalize();                // finaliza jogo
+    void Init();                   // inicializa jogo
+    void Update();                 // atualiza lógica do jogo
+    void Draw();                   // desenha jogo
+    void Finalize();               // finaliza jogo
 };
 
 // -----------------------------------------------------------------------------

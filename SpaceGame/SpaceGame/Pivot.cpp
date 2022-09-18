@@ -5,11 +5,11 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Ponto de mudança de direção para o jogador e fantasmas
+// Descrição:   Ponto de mudança de direção para o jogador
 //
 **********************************************************************************/
 
-#include "PacMan.h"
+#include "Etther.h"
 #include "Pivot.h"
 
 // ---------------------------------------------------------------------------------
