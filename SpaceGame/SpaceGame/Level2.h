@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 2 do jogo PacMan
+// Descrição:   Nú“el 2 do jogo PacMan
 //
 **********************************************************************************/
 

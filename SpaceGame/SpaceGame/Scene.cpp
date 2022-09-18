@@ -7,7 +7,7 @@
 //
 // DescriÁ„o:   Define uma classe para gerenciar o cen·rio do jogo.
 //
-//              Um gerenciador de cena È respons·vel por guardar os objetos
+//              Um gerenciador de cena ÅErespons·vel por guardar os objetos
 //              da cena, atualizando-os e desenhando-os de forma mais pr·tica.
 //              Ele pode ser usado tambÈm para outras tarefas que impliquem em
 //              percorrer a lista de objetos, como detecÁ„o de colis„o.
@@ -216,7 +216,7 @@ bool Scene::Collision(Point* p, Point* q)
     if (int(p->X()) == int(q->X()) && int(p->Y()) == int(q->Y()))
         return true;
 
-    // caso contr·rio n„o h· colis„o
+    // caso contr·rio n„o hÅEcolis„o
     return false;
 }
 
@@ -229,7 +229,7 @@ bool Scene::Collision(Point * p, Rect * r)
         if (p->Y() >= r->Top() && p->Y() <= r->Bottom())
             return true;
 
-    // caso contr·rio n„o h· colis„o
+    // caso contr·rio n„o hÅEcolis„o
     return false;
 }
 
@@ -237,8 +237,8 @@ bool Scene::Collision(Point * p, Rect * r)
 
 bool Scene::Collision(Point * p, Circle * c)
 {
-    // se a dist‚ncia entre o ponto e o centro do cÌrculo
-    // for menor que o raio do cÌrculo ent„o h· colis„o
+    // se a dist‚ncia entre o ponto e o centro do c˙èculo
+    // for menor que o raio do c˙èculo ent„o hÅEcolis„o
     if (p->Distance(Point(c->CenterX(), c->CenterY())) <= c->radius)
         return true;
     else
@@ -255,7 +255,7 @@ bool Scene::Collision(Rect * ra, Rect * rb)
     // verificando sobreposiÁ„o no eixo y
     bool overlapY = (rb->Top() <= ra->Bottom() && ra->Top() <= rb->Bottom());
 
-    // existe colis„o se h· sobreposiÁ„o nos dois eixos
+    // existe colis„o se hÅEsobreposiÁ„o nos dois eixos
     return overlapX && overlapY;
 }
 
@@ -263,7 +263,7 @@ bool Scene::Collision(Rect * ra, Rect * rb)
 
 bool Scene::Collision(Rect * r, Circle * c)
 {
-    // encontra o ponto do ret‚ngulo mais prÛximo do centro do cÌrculo
+    // encontra o ponto do ret‚ngulo mais prÛximo do centro do c˙èculo
     float px, py;
 
     // eixo x
@@ -284,7 +284,7 @@ bool Scene::Collision(Rect * r, Circle * c)
         else
             py = c->CenterY();
 
-    // verifica se h· colis„o entre este ponto e o cÌrculo
+    // verifica se hÅEcolis„o entre este ponto e o c˙èculo
     Point point(px, py);
     return Collision(&point, c);
 }
@@ -293,16 +293,16 @@ bool Scene::Collision(Rect * r, Circle * c)
 
 bool Scene::Collision(Circle * ca, Circle * cb)
 {
-    // deltas podem ser negativos se a subtraÁ„o È feita na ordem errada
-    // levando essa possibilidade em conta È melhor pegar os valores absolutos
+    // deltas podem ser negativos se a subtraÁ„o ÅEfeita na ordem errada
+    // levando essa possibilidade em conta ÅEmelhor pegar os valores absolutos
     float deltaX = abs(ca->CenterX() - cb->CenterX());
     float deltaY = abs(ca->CenterY() - cb->CenterY());
 
-    // calcule a dist‚ncia entre os centros dos cÌrculos
+    // calcule a dist‚ncia entre os centros dos c˙èculos
     float distance = float(sqrt(double(deltaX) * double(deltaX) + double(deltaY) * double(deltaY)));
 
-    // se a dist‚ncia È menor que a soma dos raios
-    // existe colis„o entre os cÌrculos
+    // se a dist‚ncia ÅEmenor que a soma dos raios
+    // existe colis„o entre os c˙èculos
     if (distance <= (ca->radius + cb->radius))
         return true;
 
@@ -316,7 +316,7 @@ bool Scene::Collision(Mixed * m, Geometry * s)
 {
     bool collision = false;
 
-    // percorra lista atÈ achar uma colis„o
+    // percorra lista atÅEachar uma colis„o
     auto i = m->shapes.begin();
 
     while (!collision && i != m->shapes.end())

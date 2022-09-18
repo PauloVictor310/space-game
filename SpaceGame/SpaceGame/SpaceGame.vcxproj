@@ -178,6 +178,7 @@
     <ClCompile Include="LevelLose.cpp" />
     <ClCompile Include="LevelWin.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Orb.cpp" />
     <ClCompile Include="PacMan.cpp" />
     <ClCompile Include="Pivot.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="LevelLose.h" />
     <ClInclude Include="LevelWin.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Orb.h" />
     <ClInclude Include="PacMan.h" />
     <ClInclude Include="Pivot.h" />
     <ClInclude Include="Player.h" />

@@ -1,5 +1,5 @@
 /**********************************************************************************
-// Pivot (Arquivo de Cabeçalho)
+// Orb (Arquivo de Cabeçalho)
 // 
 // Criação:     01 Jan 2013
 // Atualização: 25 Ago 2021
@@ -9,27 +9,25 @@
 //
 **********************************************************************************/
 
-#ifndef _PACMAN_PIVOT_H_
-#define _PACMAN_PIVOT_H_
+#ifndef _PACMAN_Orb_H_
+#define _PACMAN_Orb_H_
 
 // ---------------------------------------------------------------------------------
 // Inclusões
 
 #include "Types.h"                          // tipos especúƒicos da engine
 #include "Object.h"                         // interface de Object
+#include "Player.h"
 
 // ---------------------------------------------------------------------------------
 
-class Pivot : public Object
+class Orb : public Object
 {
 public:
-    bool left  = false;                     // passagem livre a esquerda
-    bool right = false;                     // passagem livre a direita
-    bool up    = false;                     // passagem livre para cima
-    bool down  = false;                     // passagem livre para baixo
+    uint color;
 
-    Pivot(bool l, bool r, bool u, bool d);  // construtor
-    ~Pivot();                               // destrutor
+    Orb(uint c);  // construtor
+    ~Orb();                               // destrutor
 
     void Update() {};                       // atualização
     void Draw() {};                         // desenho

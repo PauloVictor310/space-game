@@ -90,6 +90,7 @@
     <ClCompile Include="Object.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Level3.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
@@ -100,6 +101,9 @@
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="LevelLose.cpp">
+=======
+    <ClCompile Include="Orb.cpp">
+>>>>>>> Stashed changes
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,6 +177,7 @@
     <ClInclude Include="resource.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="Level3.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -183,6 +188,9 @@
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="LevelLose.h">
+=======
+    <ClInclude Include="Orb.h">
+>>>>>>> Stashed changes
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

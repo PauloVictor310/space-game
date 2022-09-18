@@ -6,7 +6,7 @@
 // Compilador:  Visual C++ 2019
 //
 // Descrição:   Agrupa a definição de todas as formas geométricas suportadas:
-//              ponto, linha, retângulo, círculo, polígono e mista (agrupamento
+//              ponto, linha, retângulo, cúculo, polú„ono e mista (agrupamento
 //              de uma ou mais geometrias)
 //
 **********************************************************************************/
@@ -77,7 +77,7 @@ float Point::Distance(const Point & p) const
 
 Line::Line()
 {
-    // linha padrão vai de (0,0) até (0,0)
+    // linha padrão vai de (0,0) atE(0,0)
     a = Point();
     b = Point();
     type = LINE_T;
@@ -87,7 +87,7 @@ Line::Line()
 
 Line::Line(float x1, float y1, float x2, float y2)
 {
-    // cria linha de (x1,y1) até (x2,y2)
+    // cria linha de (x1,y1) atE(x2,y2)
     a = Point(x1,y1);    
     b = Point(x2,y2);
     type = LINE_T;
@@ -97,7 +97,7 @@ Line::Line(float x1, float y1, float x2, float y2)
     
 Line::Line(Point& pa, Point& pb)
 {
-    // cria linha de pa até pb
+    // cria linha de pa atEpb
     a = pa;
     b = pb;
     type = LINE_T;
@@ -110,7 +110,7 @@ Line::Line(Point& pa, Point& pb)
 
 Rect::Rect()
 {
-    // cria retângulo de (0,0) até (0,0)
+    // cria retângulo de (0,0) atE(0,0)
     left = right  = 0.0f;
     top  = bottom = 0.0f;
     type = RECTANGLE_T;
@@ -145,7 +145,7 @@ Rect::Rect(Point& a, Point& b)
 
 Circle::Circle()
 {
-    // círculo padrão tem raio nulo
+    // cúculo padrão tem raio nulo
     radius   = 0;
     type     = CIRCLE_T;
 }
@@ -154,7 +154,7 @@ Circle::Circle()
 
 Circle::Circle(float r)
 {
-    // define círculo de raio r
+    // define cúculo de raio r
     radius   = r;
     type     = CIRCLE_T;
 }
@@ -165,8 +165,8 @@ Circle::Circle(float r)
 
 Poly::Poly()
 {
-    vertexCount = 0;                        // polígono não tem vértices
-    vertexList  = nullptr;                    // inicialmente a lista de vértices é vazia
+    vertexCount = 0;                        // polú„ono não tem vértices
+    vertexList  = nullptr;                    // inicialmente a lista de vértices Evazia
     type = POLYGON_T;
 }
 
@@ -174,13 +174,13 @@ Poly::Poly()
 
 Poly::Poly(Point * vList, uint vCount)
 {
-    // guarda número de vértices do polígono
+    // guarda número de vértices do polú„ono
     vertexCount = vCount;                    
     
     // aloca memória para os vértices
     vertexList = new Point[vCount];    
 
-    // guarda lista de vértices do polígono
+    // guarda lista de vértices do polú„ono
     for (uint i=0; i < vCount; ++i)        
         vertexList[i].MoveTo(vList[i].X(), vList[i].Y());
 
@@ -191,13 +191,13 @@ Poly::Poly(Point * vList, uint vCount)
 
 Poly::Poly(const Poly& p)
 {
-    // guarda número de vértices do polígono
+    // guarda número de vértices do polú„ono
     vertexCount = p.vertexCount;                    
     
     // aloca memória para os vértices
     vertexList = new Point[vertexCount];    
 
-    // guarda lista de vértices do polígono
+    // guarda lista de vértices do polú„ono
     for (uint i=0; i < vertexCount; ++i)
         vertexList[i].MoveTo(p.vertexList[i].X(), p.vertexList[i].Y());
 
@@ -211,13 +211,13 @@ const Poly& Poly::operator=(const Poly& p)
     if (vertexList)
         delete [] vertexList;
 
-    // guarda número de vértices do polígono
+    // guarda número de vértices do polú„ono
     vertexCount = p.vertexCount;                    
     
     // aloca memória para os vértices
     vertexList = new Point[vertexCount];    
 
-    // guarda lista de vértices do polígono
+    // guarda lista de vértices do polú„ono
     for (uint i=0; i < vertexCount; ++i)
         vertexList[i].MoveTo(p.vertexList[i].X(), p.vertexList[i].Y());
 

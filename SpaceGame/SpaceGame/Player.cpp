@@ -12,6 +12,7 @@
 #include "PacMan.h"
 #include "Player.h"
 #include "Pivot.h"
+#include "Orb.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -21,8 +22,12 @@ Player::Player()
     spriteR = new Sprite("Resources/spaceship_red_right.png");
     spriteU = new Sprite("Resources/spaceship_red_top.png");
     spriteD = new Sprite("Resources/spaceship_red_down.png");
+    spriteBlueL = new Sprite("Resources/spaceship_blue_left.png");
+    spriteBlueR = new Sprite("Resources/spaceship_blue_right.png");
+    spriteBlueU = new Sprite("Resources/spaceship_blue_top.png");
+    spriteBlueD = new Sprite("Resources/spaceship_blue_down.png");
 
-    // imagem do pacman é 48x48 (com borda transparente de 4 pixels)
+    // imagem do pacman E48x48 (com borda transparente de 4 pixels)
     BBox(new Rect(-20, -20, 20, 20));
     MoveTo(480.0f, 450.0f);
     type = PLAYER;
@@ -36,6 +41,10 @@ Player::~Player()
     delete spriteR;
     delete spriteU;
     delete spriteD;
+    delete spriteBlueL;
+    delete spriteBlueR;
+    delete spriteBlueU;
+    delete spriteBlueD;
 }
 
 // ---------------------------------------------------------------------------------
@@ -84,9 +93,23 @@ void Player::OnCollision(Object * obj)
 {
     if (obj->Type() == PIVOT)
         PivotCollision(obj);
+
+    if (obj->Type() == ORB);
+        OrbCollision(obj);
 }
 
 // ---------------------------------------------------------------------------------
+
+void Player::OrbCollision(Object* obj) {
+    Orb* o = (Orb*)obj;
+
+    if (o->color == BLUE) {
+        currColor = BLUE;
+    }
+    else if (o->color == RED) {
+        currColor = RED;
+    }
+}
 
 void Player::PivotCollision(Object * obj)
 {
@@ -369,6 +392,7 @@ void Player::PivotCollision(Object * obj)
 
 void Player::Update()
 {
+
     if (window->KeyDown(VK_LEFT))
     {
         nextState = LEFT;
@@ -433,23 +457,44 @@ void Player::Update()
 // ---------------------------------------------------------------------------------
 
 void Player::Draw()
-{ 
-    switch(currState)
-    {
-    case LEFT:  spriteL->Draw(x, y, Layer::UPPER); break;
-    case RIGHT: spriteR->Draw(x, y, Layer::UPPER); break;
-    case UP:    spriteU->Draw(x, y, Layer::UPPER); break;
-    case DOWN:  spriteD->Draw(x, y, Layer::UPPER); break;
-    default: 
-        switch(nextState)
+{
+    if (currColor == BLUE) {
+        switch (currState)
+        {
+        case LEFT:  spriteBlueL->Draw(x, y, Layer::UPPER); break;
+        case RIGHT: spriteBlueR->Draw(x, y, Layer::UPPER); break;
+        case UP:    spriteBlueU->Draw(x, y, Layer::UPPER); break;
+        case DOWN:  spriteBlueD->Draw(x, y, Layer::UPPER); break;
+        default:
+            switch (nextState)
+            {
+            case LEFT:  spriteBlueL->Draw(x, y, Layer::UPPER); break;
+            case RIGHT: spriteBlueR->Draw(x, y, Layer::UPPER); break;
+            case UP:    spriteBlueU->Draw(x, y, Layer::UPPER); break;
+            case DOWN:  spriteBlueD->Draw(x, y, Layer::UPPER); break;
+            default:    spriteBlueL->Draw(x, y, Layer::UPPER);
+            }
+        }
+    }
+    else if (currColor == RED) {
+        switch (currState)
         {
         case LEFT:  spriteL->Draw(x, y, Layer::UPPER); break;
         case RIGHT: spriteR->Draw(x, y, Layer::UPPER); break;
         case UP:    spriteU->Draw(x, y, Layer::UPPER); break;
         case DOWN:  spriteD->Draw(x, y, Layer::UPPER); break;
-        default:    spriteL->Draw(x, y, Layer::UPPER);
+        default:
+            switch (nextState)
+            {
+            case LEFT:  spriteL->Draw(x, y, Layer::UPPER); break;
+            case RIGHT: spriteR->Draw(x, y, Layer::UPPER); break;
+            case UP:    spriteU->Draw(x, y, Layer::UPPER); break;
+            case DOWN:  spriteD->Draw(x, y, Layer::UPPER); break;
+            default:    spriteL->Draw(x, y, Layer::UPPER);
+            }
         }
     }
+    
 }
 
 // ---------------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 2 do jogo PacMan
+// Descrição:   Nú“el 2 do jogo PacMan
 //
 **********************************************************************************/
 
@@ -14,6 +14,7 @@
 #include "Level4.h"
 #include "LevelWin.h"
 #include "Player.h"
+#include "Orb.h"
 #include "Pivot.h"
 #include <string>
 #include <fstream>
@@ -34,6 +35,11 @@ void Level4::Init()
     Player* player = new Player();
     scene->Add(player, MOVING);
 
+    // cria orb
+    Orb* orb = new Orb(RED);
+    orb->MoveTo(160, 598);
+    scene->Add(orb, STATIC);
+
     // cria pontos de mudança de direção
     Pivot* pivot;
     bool left, right, up, down;
@@ -47,7 +53,7 @@ void Level4::Init()
     {
         if (fin.good())
         {
-            // lê linha de informações do pivô
+            // lElinha de informações do pivE
             fin >> right; fin >> up; fin >> down; fin >> posX; fin >> posY;
             pivot = new Pivot(left, right, up, down);
             pivot->MoveTo(posX, posY);
@@ -95,7 +101,7 @@ void Level4::Update()
     }
     else if (window->KeyDown('V'))
     {
-        // passa manualmente para o próximo nível
+        // passa manualmente para o próximo nú“el
         Engine::Next<LevelWin>();
     }
     else

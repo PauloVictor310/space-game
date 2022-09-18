@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 1 do jogo PacMan
+// Descrição:   Nú“el 1 do jogo PacMan
 //
 **********************************************************************************/
 
@@ -47,7 +47,7 @@ void Level1::Init()
     {
         if (fin.good())
         {
-            // lê linha de informações do pivô
+            // lElinha de informações do pivE
             fin >> right; fin >> up; fin >> down; fin >> posX; fin >> posY;
             pivot = new Pivot(left, right, up, down);
             pivot->MoveTo(posX, posY);
@@ -95,7 +95,7 @@ void Level1::Update()
     }
     else if (window->KeyDown('N'))
     {
-        // passa manualmente para o próximo nível
+        // passa manualmente para o próximo nú“el
         Engine::Next<Level2>();
     }
     else

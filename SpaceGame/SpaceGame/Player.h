@@ -15,15 +15,16 @@
 // ---------------------------------------------------------------------------------
 // Inclusıes
 
-#include "Types.h"                      // tipos especÌficos da engine
+#include "Types.h"                      // tipos espec˙Éicos da engine
 #include "Object.h"                     // interface de Object
 #include "Sprite.h"                     // interface de Sprites
 
 // ---------------------------------------------------------------------------------
 // Constantes Globais
 
-// estados possÌveis para o jogador
-enum PLAYERSTATE {STOPED, UP, DOWN, LEFT, RIGHT};    
+// estados poss˙ìeis para o jogador
+enum PLAYERSTATE {STOPED, UP, DOWN, LEFT, RIGHT};
+enum PLAYERCOLOR { BLUE, RED };
 
 // ---------------------------------------------------------------------------------
 
@@ -34,12 +35,18 @@ private:
     Sprite * spriteR = nullptr;         // sprite do player indo para direita
     Sprite * spriteU = nullptr;         // sprite do player indo para cima
     Sprite * spriteD = nullptr;         // sprite do player indo para baixo
+    Sprite* spriteBlueL = nullptr;      // sprite do player azul indo para esquerda
+    Sprite* spriteBlueR = nullptr;      // sprite do player azul indo para direita
+    Sprite* spriteBlueU = nullptr;      // sprite do player azul indo para cima
+    Sprite* spriteBlueD = nullptr;      // sprite do player azul indo para baixo
     float velX = 0;                     // velocidade horizontal do player
     float velY = 0;                     // velocidade vertical do player
 
 public:
     uint currState = STOPED;            // estado atual do jogador
     uint nextState = STOPED;            // prÛximo estado do jogador
+    uint currColor = BLUE;              // cor atual do jogador
+    uint nextColor = BLUE;              // cor atual do jogador
 
     Player();                           // construtor
     ~Player();                          // destrutor
@@ -51,7 +58,8 @@ public:
     void Right();                       // muda direÁ„o para direita
 
     void OnCollision(Object * obj);     // resoluÁ„o da colis„o
-    void PivotCollision(Object * obj);  // revolve colis„o com pivÙ
+    void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
+    void OrbCollision(Object* obj);     // revolve colis„o com orbÅE
     
     void Update();                      // atualizaÁ„o do objeto
     void Draw();                        // desenho do objeto

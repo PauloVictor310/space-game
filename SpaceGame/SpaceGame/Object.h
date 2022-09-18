@@ -5,9 +5,9 @@
 // AtualizaÁ„o: 02 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// DescriÁ„o:   Essa È a classe base para todos objetos do jogo.
+// DescriÁ„o:   Essa ÅEa classe base para todos objetos do jogo.
 //
-//              Um objeto do jogo È qualquer coisa que poss·mos querer desenhar
+//              Um objeto do jogo ÅEqualquer coisa que poss·mos querer desenhar
 //              ou interagir dentro do jogo. Por exemplo, um soldado, um prÈdio,
 //              um projÈtil, uma forma geomÈtrica, etc.
 //
@@ -33,7 +33,7 @@ private:
 
 protected:
     static Window* & window;    // janela do jogo
-    static Game* & game;        // jogo em que o objeto est· inserido
+    static Game* & game;        // jogo em que o objeto estÅEinserido
     static float & gameTime;    // tempo do ˙ltimo quadro
 
     const float & x = posX;     // coordenada x do objeto

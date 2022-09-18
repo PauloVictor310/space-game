@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------------
 // Inclusões
 
-#include "Types.h"                      // tipos específicos da engine
+#include "Types.h"                      // tipos especúƒicos da engine
 #include "Object.h"                     // interface de Object
 #include "Sprite.h"                     // interface de Sprites
 #include "Player.h"                     // jogador do PacMan
