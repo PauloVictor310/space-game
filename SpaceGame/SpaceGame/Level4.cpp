@@ -50,13 +50,19 @@ void Level4::Init()
     scene->Add(cannon, STATIC);
 
     Wall* wall;
-    wall = new Wall(0, 0, 462, 8);
+    wall = new Wall(0, 0, 10, 216);
     wall->color = RED;
-    wall->MoveTo(0.0f, window->CenterY() - 143.0f);
+    wall->MoveTo(162.0f, 0.0f);
     scene->Add(wall, STATIC);
 
-    wall = new Wall(462, 100, 800, 110);
-    wall->color = BLUE;
+    wall = new Wall(0, 0, 10, 216);
+    wall->color = RED;
+    wall->MoveTo(782.0f, 0.0f);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(0, 0, 630, 8);
+    wall->color = RED;
+    wall->MoveTo(162.0f, window->CenterY() - 143.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 360);
