@@ -86,35 +86,6 @@ void Level4::Init()
     orb->MoveTo(160, 598);
     scene->Add(orb, STATIC);
 
-    // cria pontos de mudança de direção
-    Pivot* pivot;
-    bool left, right, up, down;
-    float posX, posY;
-    ifstream fin;
-
-    // cria pivôs a partir do arquivo
-    fin.open("PivotsL2.txt");
-    fin >> left;
-    while (!fin.eof())
-    {
-        if (fin.good())
-        {
-            // lElinha de informações do pivE
-            fin >> right; fin >> up; fin >> down; fin >> posX; fin >> posY;
-            pivot = new Pivot(left, right, up, down);
-            pivot->MoveTo(posX, posY);
-            scene->Add(pivot, STATIC);
-        }
-        else
-        {
-            // ignora comentários
-            fin.clear();
-            char temp[80];
-            fin.getline(temp, 80);
-        }
-        fin >> left;
-    }
-    fin.close();
 }
 
 // ------------------------------------------------------------------------------

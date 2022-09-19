@@ -91,8 +91,8 @@ void Player::Right()
 
 void Player::OnCollision(Object * obj)
 {
-    if (obj->Type() == PIVOT)
-        PivotCollision(obj);
+    //if (obj->Type() == PIVOT)
+        //PivotCollision(obj);
 
     if (obj->Type() == ORB)
         OrbCollision(obj);
@@ -111,7 +111,7 @@ void Player::OrbCollision(Object* obj) {
     }
 }
 
-void Player::PivotCollision(Object * obj)
+/*void Player::PivotCollision(Object* obj)
 {
     Pivot * p = (Pivot*)obj;
 
@@ -387,6 +387,7 @@ void Player::PivotCollision(Object * obj)
         break;
     }
 }
+*/
 
 // ---------------------------------------------------------------------------------
 
@@ -395,46 +396,36 @@ void Player::Update()
 
     if (window->KeyDown(VK_LEFT))
     {
+        currState = LEFT;
         nextState = LEFT;
-
-        if (currState == RIGHT || currState == STOPED)
-        {
-            currState = LEFT;
-            Left();
-        }            
+        Left();
     }
     
     if (window->KeyDown(VK_RIGHT))
     {
+        currState = RIGHT;
         nextState = RIGHT;
-
-        if (currState == LEFT || currState == STOPED)
-        {
-            currState = RIGHT;
-            Right();
-        }
+        Right(); 
     }
     
     if (window->KeyDown(VK_UP))
     {
+        currState = UP;
         nextState = UP;
-
-        if (currState == DOWN || currState == STOPED)
-        {
-            currState = UP;
-            Up();
-        }
+        Up();    
     }
     
     if (window->KeyDown(VK_DOWN))
     {
+        currState = DOWN;
         nextState = DOWN;
+        Down();
+    }
 
-        if (currState == UP || currState == STOPED)
-        {
-            currState = DOWN;
-            Down();
-        }
+    if (window->KeyDown('P'))
+    {
+        //currState = STOPED;
+        Stop();
     }
 
     // atualiza posição

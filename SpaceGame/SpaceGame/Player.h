@@ -58,7 +58,7 @@ public:
     void Right();                       // muda direÁ„o para direita
 
     void OnCollision(Object * obj);     // resoluÁ„o da colis„o
-    void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
+    //void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
     void OrbCollision(Object* obj);     // revolve colis„o com orbÅE
     
     void Update();                      // atualizaÁ„o do objeto
