@@ -20,6 +20,7 @@
 #include "Scene.h"
 #include "Cannon.h"
 #include "Bullet.h"
+#include "Player.h"
 #include <vector>
 #include <ctime>
 
@@ -39,6 +40,7 @@ private:
 public:
     
     Scene* scene = nullptr;      // gerenciador de cena
+    static Player* player;
 
     void Init();                   // inicializa jogo
     void Update();                 // atualiza lógica do jogo

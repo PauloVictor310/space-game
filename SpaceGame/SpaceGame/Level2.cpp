@@ -21,10 +21,13 @@
 #include "Wall.h"
 #include <string>
 #include <fstream>
+#include "Level1.h"
 using std::ifstream;
 using std::string;
 
 // ------------------------------------------------------------------------------
+
+Player* Level2::player = nullptr;
 
 void Level2::Init()
 {
@@ -35,8 +38,11 @@ void Level2::Init()
     backg = new Sprite("Resources/phase_2_completed.png");
 
     // cria jogador
-    Player * player = new Player();
+    player = new Player();
+    player->currLevel = LEVEL2;
     scene->Add(player, MOVING);
+    //temporario
+    //player->currColor = RED;
 
     //Cria e posiciona bbox dos canhões
     Cannon* cannon;
@@ -133,7 +139,16 @@ void Level2::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Muda para o nível 1
+    if (player->nextLevel == LEVEL1)
+        Engine::Next<Level1>();
+
+    // Muda para o nível 3
+    if (player->nextLevel == LEVEL3)
+        Engine::Next<Level3>();
 }
+
 
 // ------------------------------------------------------------------------------
 

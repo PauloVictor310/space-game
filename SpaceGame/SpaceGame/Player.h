@@ -23,6 +23,7 @@
 // Constantes Globais
 
 // estados possú“eis para o jogador
+enum PLAYERLEVEL { LEVEL1, LEVEL2, LEVEL3, LEVEL4 };
 enum PLAYERSTATE {STOPED, UP, DOWN, LEFT, RIGHT};
 enum PLAYERCOLOR { BLUE, RED };
 
@@ -43,6 +44,8 @@ private:
     float velY = 0;                     // velocidade vertical do player
 
 public:
+    uint currLevel = -1;                // nível atual do jogador
+    uint nextLevel = -1;                // próximo nível do jogador
     uint currState = STOPED;            // estado atual do jogador
     uint nextState = STOPED;            // próximo estado do jogador
     uint currColor = BLUE;              // cor atual do jogador

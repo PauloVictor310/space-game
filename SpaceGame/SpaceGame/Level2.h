@@ -18,6 +18,7 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Scene.h"
+#include "Player.h"
 
 // ------------------------------------------------------------------------------
 
@@ -31,6 +32,7 @@ private:
     bool ctrlKeyB = false;         // controle da tecla B
 
 public:
+    static Player* player;
 
     void Init();                   // inicializa jogo
     void Update();                 // atualiza lógica do jogo

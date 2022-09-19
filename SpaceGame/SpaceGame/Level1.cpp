@@ -21,10 +21,13 @@
 #include "Bullet.h"
 #include <string>
 #include <fstream>
+#include "Level4.h"
 using std::ifstream;
 using std::string;
 
 // ------------------------------------------------------------------------------
+
+Player* Level1::player = nullptr;
 
 void Level1::Init()
 {
@@ -35,7 +38,8 @@ void Level1::Init()
     backg = new Sprite("Resources/phase_1_completed.png");
 
     // cria jogador
-    Player * player = new Player();
+    player = new Player();
+    player->currLevel = LEVEL1;
     scene->Add(player, MOVING);
 
     //Cria e posiciona bbox dos canhões
@@ -121,6 +125,14 @@ void Level1::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Muda para o nível 2
+    if (player->nextLevel == LEVEL2)
+        Engine::Next<Level2>();
+
+    // Muda para o nível 4
+    if (player->nextLevel == LEVEL4)
+        Engine::Next<Level4>();
 }
 
 // ------------------------------------------------------------------------------

@@ -477,18 +477,90 @@ void Player::Update()
     // atualiza posição
     Translate(velX * gameTime, velY * gameTime);
 
-    // mantém player dentro da tela
-    if (x+20 < 0)
-        MoveTo(window->Width()+20.f, Y());
+    // ---------------------------------------------------------------------------------
+    // Movimentação do nível 1
+    if (currLevel == LEVEL1) {
+        //não pode ir para a esquerda
+        if (X() - 20 < 0)
+            MoveTo(20.0f, Y());
 
-    if (x-20 > window->Width())
-        MoveTo(-20.0f, Y());
+        //direita (muda para o nível 2)
+        if (X() - 20 > window->Width()) {
+            nextLevel = LEVEL2;
+        }
 
-    if (Y()+20 < 0)
-        MoveTo(x, window->Height()+20.0f);
+        //cima (muda para o nível 4) (NAO FIZ)
+        if (Y() + 20 < 0) {
+            MoveTo(X(), window->Height() + 20.0f);
+            nextLevel = LEVEL4;
+        }
 
-    if (Y()-20 > window->Height())
-        MoveTo(x, -20.0f);
+        //não pode ir para baixo
+        if (Y() + 20 > window->Height())
+            MoveTo(X(), window->Height() - 20.0f);
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimentação do nível 2
+    if (currLevel == LEVEL2) {
+        //esquerda (muda para o nível 1)
+        if (X() - 20 < 0) {
+            nextLevel = LEVEL1;
+        }
+
+        //não pode ir para a direita
+        if (X() + 20 > window->Width())
+            MoveTo(window->Width() - 20.0f, Y());
+
+        //cima (muda para o nível 3)
+        if (Y() + 20 < 0) {
+            nextLevel = LEVEL3;
+        }
+
+        //não pode ir para baixo
+        if (Y() + 20 > window->Height())
+            MoveTo(X(), window->Height() - 20.0f);
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimentação do nível 3
+    if (currLevel == LEVEL3) {
+        //esquerda (muda para o nível 4) (NAO FIZ)
+        if (X() - 20 < 0) {
+            nextLevel = LEVEL4;
+        }
+
+        //não pode ir para a direita
+        if (X() + 20 > window->Width())
+            MoveTo(window->Width() - 20.0f, Y());
+
+        //não pode ir para cima
+        if (Y() - 20 < 0)
+            MoveTo(X(), window->Height() - 20.0f);
+
+        //baixo (muda para o nível 2)
+        if (Y() + 20 > window->Height())
+            nextLevel = LEVEL2;
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimentação do nível 4
+    if (currLevel == LEVEL4) {
+        //não pode ir para a esquerda
+        if (X() - 20 < 0)
+            MoveTo(20.0f, Y());
+
+        //direita (muda para o nível 3)
+        if (X() - 20 > window->Width()) {
+            nextLevel = LEVEL3;
+        }
+
+        //não pode ir para cima
+        if (Y() + 20 < 0) {
+            MoveTo(X(), window->Height() + 20.0f);
+        }
+
+        //baixo (muda para o nível 1)
+        if (Y() + 20 > window->Height())
+            nextLevel = LEVEL1;
+    }
 }
 
 // ---------------------------------------------------------------------------------
