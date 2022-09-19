@@ -16,7 +16,7 @@
 
 // ---------------------------------------------------------------------------------
 
-Bullet::Bullet(int vx, int vy)
+Bullet::Bullet(float vx, float vy)
 {
     velX = vx;
     velY = vy;

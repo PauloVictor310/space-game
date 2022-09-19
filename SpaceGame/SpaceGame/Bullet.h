@@ -29,7 +29,7 @@ private:
 
 public:
 
-    Bullet(int x, int y);                          // construtor
+    Bullet(float x, float y);                // construtor
     ~Bullet();                               // destrutor
 
     float velX; // velocidade no eixo X
