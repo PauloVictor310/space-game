@@ -32,6 +32,7 @@ Player::Player(float initX, float initY, uint color)
     Player::initY = initY;
     Player::currColor = color;
     Player::nextColor = color;
+    Player::keyCtrl = true;
 
     // imagem do pacman ?E48x48 (com borda transparente de 4 pixels)
     BBox(new Rect(-20, -20, 20, 20));
@@ -455,38 +456,58 @@ void Player::WallCollision(Object* obj) {
 void Player::Update()
 {
 
-    if (window->KeyDown(VK_LEFT))
+    if (keyCtrl && window->KeyDown(VK_LEFT))
     {
         currState = LEFT;
         nextState = LEFT;
         Left();
+        keyCtrl = false;
+    }
+    else if (window->KeyUp(VK_LEFT)) {
+        keyCtrl = true;
     }
 
-    if (window->KeyDown(VK_RIGHT))
+    if (keyCtrl && window->KeyDown(VK_RIGHT))
     {
         currState = RIGHT;
         nextState = RIGHT;
         Right();
+        keyCtrl = false;
+    }
+    else if (window->KeyUp(VK_RIGHT)) {
+        keyCtrl = true;
     }
 
-    if (window->KeyDown(VK_UP))
+    if (keyCtrl && window->KeyDown(VK_UP))
     {
         currState = UP;
         nextState = UP;
         Up();
+        keyCtrl = false;
+    }
+    else if (window->KeyUp(VK_UP)) {
+        keyCtrl = true;
     }
 
-    if (window->KeyDown(VK_DOWN))
+    if (keyCtrl && window->KeyDown(VK_DOWN))
     {
         currState = DOWN;
         nextState = DOWN;
         Down();
+        keyCtrl = false;
+    }
+    else if (window->KeyUp(VK_DOWN)) {
+        keyCtrl = true;
     }
 
-    if (window->KeyDown('P'))
+    if (keyCtrl && window->KeyDown('P'))
     {
         //currState = STOPED;
         Stop();
+        keyCtrl = false;
+    }
+    else if (window->KeyUp('P')) {
+        keyCtrl = true;
     }
 
     // atualiza posi??o

@@ -101,7 +101,7 @@ void Level1::Update()
 {
     
     if ((clock() - start) % 123 == 0) {
-        /*Bullet* bl1 = new Bullet(200, 300);
+        Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(leftCannon->X(), leftCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);
 
@@ -115,7 +115,7 @@ void Level1::Update()
 
         Bullet* br2 = new Bullet(-250, -100);
         br2->MoveTo(rightCannon->X() - 40, rightCannon->Y() - 7, Layer::UPPER);
-        scene->Add(br2, STATIC);*/
+        scene->Add(br2, STATIC);
     }
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))

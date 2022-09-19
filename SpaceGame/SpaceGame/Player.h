@@ -40,6 +40,7 @@ private:
     Sprite* spriteBlueR = nullptr;      // sprite do player azul indo para direita
     Sprite* spriteBlueU = nullptr;      // sprite do player azul indo para cima
     Sprite* spriteBlueD = nullptr;      // sprite do player azul indo para baixo
+    bool keyCtrl;               // controla pressionamento de tecla
     float velX = 0;                     // velocidade horizontal do player
     float velY = 0;                     // velocidade vertical do player
 
