@@ -546,7 +546,7 @@ void Player::Update()
 
         //n?o pode ir para cima
         if (Y() - 20 < 0)
-            MoveTo(X(), window->Height() - 20.0f);
+            MoveTo(X(), 20.0f);
 
         //baixo (muda para o n?vel 2)
         if (Y() + 20 > window->Height())
@@ -565,8 +565,8 @@ void Player::Update()
         }
 
         //n?o pode ir para cima
-        if (Y() + 20 < 0) {
-            MoveTo(X(), window->Height() + 20.0f);
+        if (Y() - 20 < 0) {
+            MoveTo(X(), 20.0f);
         }
 
         //baixo (muda para o n?vel 1)
