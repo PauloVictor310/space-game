@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 4 do jogo Etther
+// Descrição:   Nú“el 4 do jogo Etther
 //
 **********************************************************************************/
 
@@ -18,7 +18,10 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Scene.h"
+#include "Cannon.h"
 #include "Player.h"
+
+#include <ctime>
 
 // ------------------------------------------------------------------------------
 
@@ -27,6 +30,9 @@ class Level4 : public Game
 private:
     Sprite* backg = nullptr;       // background
     Scene* scene = nullptr;        // gerenciado de cena
+
+    Cannon* topCannon = nullptr;
+    Cannon* bottomCannon = nullptr;
 
     bool viewBBox = false;         // habilita visualização da bounding box
     bool ctrlKeyB = false;         // controle da tecla B
@@ -38,6 +44,8 @@ public:
     void Update();                 // atualiza lógica do jogo
     void Draw();                   // desenha jogo
     void Finalize();               // finaliza jogo
+
+    clock_t start = clock();
 };
 
 // -----------------------------------------------------------------------------

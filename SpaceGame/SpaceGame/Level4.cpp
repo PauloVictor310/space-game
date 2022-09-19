@@ -44,17 +44,14 @@ void Level4::Init()
     player = new Player(870.0f, 100.0f, BLUE);
     player->currLevel = LEVEL4;
     scene->Add(player, MOVING);
-
-    //Cria e posiciona bbox dos canhões
-    Cannon* cannon;
     //left top cannon
-    cannon = new Cannon(-32, -30, 32, 30);
-    cannon->MoveTo(36, 255);
-    scene->Add(cannon, STATIC);
+    topCannon = new Cannon(-32, -30, 32, 30);
+    topCannon->MoveTo(36, 255);
+    scene->Add(topCannon, STATIC);
     //left bottom cannon
-    cannon = new Cannon(-26, -29, 26, 29);
-    cannon->MoveTo(26, 513);
-    scene->Add(cannon, STATIC);
+    bottomCannon = new Cannon(-26, -29, 26, 29);
+    bottomCannon->MoveTo(26, 513);
+    scene->Add(bottomCannon, STATIC);
 
     Wall* wall;
     wall = new Wall(0, 0, 10, 216);
@@ -126,6 +123,24 @@ void Level4::Finalize()
 
 void Level4::Update()
 {
+
+    if ((clock() - start) % 137 == 0) {
+        Bullet* bl1 = new Bullet(200, 300);
+        bl1->MoveTo(topCannon->X(), topCannon->Y(), Layer::UPPER);
+        scene->Add(bl1, STATIC);
+
+        Bullet* bl2 = new Bullet(200, 200);
+        bl2->MoveTo(topCannon->X() + 40, topCannon->Y() + 7, Layer::UPPER);
+        scene->Add(bl2, STATIC);
+
+        Bullet* br1 = new Bullet(200, 300);
+        br1->MoveTo(bottomCannon->X(), bottomCannon->Y() - 14, Layer::UPPER);
+        scene->Add(br1, STATIC);
+
+        Bullet* br2 = new Bullet(250, 400);
+        br2->MoveTo(bottomCannon->X() - 10, bottomCannon->Y() + 7, Layer::UPPER);
+        scene->Add(br2, STATIC);
+    }
     
 
     // habilita/desabilita bounding box
