@@ -14,6 +14,7 @@
 #include "Home.h"
 #include "Level3.h"
 #include "Level4.h"
+#include "LevelLose.h"
 #include "Player.h"
 #include "Pivot.h"
 #include "Orb.h"
@@ -117,6 +118,8 @@ void Level3::Finalize()
 
 void Level3::Update()
 {
+    
+
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
     {
@@ -144,6 +147,10 @@ void Level3::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Player Perdeu
+    if (player->nextLevel == LEVELOSE)
+        Engine::Next<LevelLose>();
 
     // Muda para o nú“el 2
     if (player->nextLevel == LEVEL2)

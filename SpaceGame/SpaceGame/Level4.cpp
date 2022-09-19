@@ -22,6 +22,8 @@
 #include <string>
 #include <fstream>
 #include "Level3.h"
+#include "LevelLose.h"
+#include "LevelWin.h"
 #include "Level1.h"
 using std::ifstream;
 using std::string;
@@ -39,7 +41,7 @@ void Level4::Init()
     backg = new Sprite("Resources/phase_4_completed.png");
 
     // cria jogador
-    player = new Player(870.0f, 100.0f, RED);
+    player = new Player(870.0f, 100.0f, BLUE);
     player->currLevel = LEVEL4;
     scene->Add(player, MOVING);
 
@@ -105,6 +107,11 @@ void Level4::Init()
     orb->MoveTo(160, 598);
     scene->Add(orb, STATIC);
 
+    // cria orb de vitoria
+    Orb* orbWin = new Orb(YELLOW);
+    orbWin->MoveTo(315, 52);
+    scene->Add(orbWin, STATIC);
+
 }
 
 // ------------------------------------------------------------------------------
@@ -119,6 +126,8 @@ void Level4::Finalize()
 
 void Level4::Update()
 {
+    
+
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
     {
@@ -146,6 +155,14 @@ void Level4::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Player Perdeu
+    if (player->nextLevel == LEVELOSE)
+        Engine::Next<LevelLose>();
+
+    // Player Perdeu
+    if (player->nextLevel == LEVELWIN)
+        Engine::Next<LevelWin>();
 
     // Muda para o nú“el 1
     if (player->nextLevel == LEVEL1)

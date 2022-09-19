@@ -14,6 +14,7 @@
 #include "Home.h"
 #include "Level2.h"
 #include "Level3.h"
+#include "LevelLose.h"
 #include "Player.h"
 #include "Pivot.h"
 #include "Orb.h"
@@ -123,6 +124,8 @@ void Level2::Update()
         ctrlKeyB = true;
     }
 
+    
+
     if (window->KeyDown(VK_ESCAPE))
     {
         // volta para a tela de abertura
@@ -139,6 +142,10 @@ void Level2::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Player Perdeu
+    if (player->nextLevel == LEVELOSE)
+        Engine::Next<LevelLose>();
 
     // Muda para o nú“el 1
     if (player->nextLevel == LEVEL1)

@@ -25,7 +25,7 @@
 // estados possú“eis para o jogador
 enum PLAYERLEVEL { LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVELWIN, LEVELOSE };
 enum PLAYERSTATE {STOPED, UP, DOWN, LEFT, RIGHT};
-enum PLAYERCOLOR { BLUE, RED };
+enum PLAYERCOLOR { BLUE, RED, YELLOW };
 
 // ---------------------------------------------------------------------------------
 

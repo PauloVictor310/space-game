@@ -125,6 +125,9 @@ void Player::OrbCollision(Object* obj) {
     else if (o->color == RED) {
         currColor = RED;
     }
+    else if (o->color == YELLOW) {
+        nextLevel = LEVELWIN;
+    }
 }
 
 void Player::WallCollision(Object* obj) {
