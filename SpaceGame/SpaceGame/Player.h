@@ -48,6 +48,8 @@ public:
     uint currColor = BLUE;              // cor atual do jogador
     uint nextColor = BLUE;              // cor atual do jogador
 
+    bool isDead = false;
+
     Player();                           // construtor
     ~Player();                          // destrutor
 
@@ -61,6 +63,7 @@ public:
     //void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
     void OrbCollision(Object* obj);     // revolve colis„o com orbÅE
     void WallCollision(Object* obj);    // revolve colis„o com wallE
+    void BulletCollision();     // revolve colis„o com orbÅE
     
     void Update();                      // atualizaÁ„o do objeto
     void Draw();                        // desenho do objeto

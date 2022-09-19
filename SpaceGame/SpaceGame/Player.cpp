@@ -12,6 +12,8 @@
 #include "Etther.h"
 #include "Player.h"
 #include "Pivot.h"
+#include "Engine.h"
+#include "LevelLose.h"
 #include "Orb.h"
 #include "Wall.h"
 
@@ -100,6 +102,9 @@ void Player::OnCollision(Object * obj)
 
     if (obj->Type() == WALL)
         WallCollision(obj);
+
+    if (obj->Type() == BULLET)
+        BulletCollision();
 }
 
 // ---------------------------------------------------------------------------------
@@ -113,6 +118,11 @@ void Player::OrbCollision(Object* obj) {
     else if (o->color == RED) {
         currColor = RED;
     }
+}
+
+void Player::BulletCollision() {
+    // volta para a tela de abertura
+    isDead = true;
 }
 
 void Player::WallCollision(Object* obj) {
@@ -446,21 +456,21 @@ void Player::Update()
         nextState = LEFT;
         Left();
     }
-    
+
     if (window->KeyDown(VK_RIGHT))
     {
         currState = RIGHT;
         nextState = RIGHT;
-        Right(); 
+        Right();
     }
-    
+
     if (window->KeyDown(VK_UP))
     {
         currState = UP;
         nextState = UP;
-        Up();    
+        Up();
     }
-    
+
     if (window->KeyDown(VK_DOWN))
     {
         currState = DOWN;
@@ -478,18 +488,18 @@ void Player::Update()
     Translate(velX * gameTime, velY * gameTime);
 
     // mantém player dentro da tela
-    if (x+20 < 0)
-        MoveTo(window->Width()+20.f, Y());
+    if (x + 20 < 0)
+        MoveTo(window->Width() + 20.f, Y());
 
-    if (x-20 > window->Width())
+    if (x - 20 > window->Width())
         MoveTo(-20.0f, Y());
 
-    if (Y()+20 < 0)
-        MoveTo(x, window->Height()+20.0f);
+    if (Y() + 20 < 0)
+        MoveTo(x, window->Height() + 20.0f);
 
-    if (Y()-20 > window->Height())
+    if (Y() - 20 > window->Height())
         MoveTo(x, -20.0f);
-}
+};
 
 // ---------------------------------------------------------------------------------
 

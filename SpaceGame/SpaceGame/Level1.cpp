@@ -26,9 +26,11 @@ using std::string;
 
 // ------------------------------------------------------------------------------
 
+Scene* Level1::scene = nullptr;
+
 void Level1::Init()
 {
-    // cria gerenciador de cena
+    // cria cena do jogo
     scene = new Scene();
 
     // cria background
@@ -94,6 +96,19 @@ void Level1::Finalize()
 void Level1::Update()
 {
     
+    if ((clock() - start) % 50 == 0) {
+        Bullet* bl1 = new Bullet(200, 300);
+        bl1->MoveTo(leftCannon->X(), leftCannon->Y(), Layer::UPPER);
+        scene->Add(bl1, STATIC);
+
+        Bullet* bl2 = new Bullet(200, 300);
+        bl2->MoveTo(leftCannon->X() + 40, leftCannon->Y() + 7, Layer::UPPER);
+        scene->Add(bl2, STATIC);
+
+        Bullet* br1 = new Bullet(-200, -300);
+        br1->MoveTo(rightCannon->X(), rightCannon->Y(), Layer::UPPER);
+        scene->Add(br1, STATIC);
+    }
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
     {

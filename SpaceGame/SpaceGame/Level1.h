@@ -38,7 +38,7 @@ private:
 
 public:
     
-    Scene* scene = nullptr;      // gerenciador de cena
+    static Scene* scene;      // gerenciador de cena
 
     void Init();                   // inicializa jogo
     void Update();                 // atualiza lógica do jogo
