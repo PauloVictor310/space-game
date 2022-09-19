@@ -46,19 +46,17 @@ void Level2::Init()
     //player->currColor = RED;
 
     //Cria e posiciona bbox dos canhões
-    Cannon* cannon;
-    //bottom cannon
-    cannon = new Cannon(-31, -28, 31, 28);
-    cannon->MoveTo(350, 692);
-    scene->Add(cannon, STATIC);
+    bottomLeftCannon = new Cannon(-31, -28, 31, 28);
+    bottomLeftCannon->MoveTo(350, 692);
+    scene->Add(bottomLeftCannon, STATIC);
     //top right cannon
-    cannon = new Cannon(-31, -21, 31, 21);
-    cannon->MoveTo(929, 295);
-    scene->Add(cannon, STATIC);
+    bottomRightCannon = new Cannon(-31, -21, 31, 21);
+    bottomRightCannon->MoveTo(929, 295);
+    scene->Add(bottomRightCannon, STATIC);
     //bottom right cannon
-    cannon = new Cannon(-31, -28, 31, 28);
-    cannon->MoveTo(928, 537);
-    scene->Add(cannon, STATIC);
+    topRightCannon = new Cannon(-31, -28, 31, 28);
+    topRightCannon->MoveTo(928, 537);
+    scene->Add(topRightCannon, STATIC);
     
     // -----------------------------------------
     // posição das paredes
@@ -113,6 +111,36 @@ void Level2::Finalize()
 
 void Level2::Update()
 {
+    if ((clock() - start) % 169 == 0) {
+        Bullet* bl1 = new Bullet(-300, -300);
+        bl1->MoveTo(bottomLeftCannon->X() - 20, bottomLeftCannon->Y(), Layer::UPPER);
+        scene->Add(bl1, STATIC);
+
+        Bullet* bl2 = new Bullet(-200, -480);
+        bl2->MoveTo(bottomLeftCannon->X() + 14, bottomLeftCannon->Y() + 7, Layer::UPPER);
+        scene->Add(bl2, STATIC);
+
+        Bullet* tr1 = new Bullet(-200, -100);
+        tr1->MoveTo(topRightCannon->X(), topRightCannon->Y() + 12, Layer::UPPER);
+        scene->Add(tr1, STATIC);
+
+        Bullet* tr2 = new Bullet(-250, -220);
+        tr2->MoveTo(topRightCannon->X(), topRightCannon->Y() - 15, Layer::UPPER);
+        scene->Add(tr2, STATIC);
+
+    }
+
+    if ((clock() - start) % 201 == 0) {
+
+        Bullet* br1 = new Bullet(-200, 0);
+        br1->MoveTo(bottomRightCannon->X() + 10, bottomRightCannon->Y() + 7, Layer::UPPER);
+        scene->Add(br1, STATIC);
+
+        Bullet* br2 = new Bullet(-200, 0);
+        br2->MoveTo(bottomRightCannon->X() - 10, bottomRightCannon->Y() - 7, Layer::UPPER);
+        scene->Add(br2, STATIC);
+
+    }
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
     {

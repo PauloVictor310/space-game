@@ -18,7 +18,9 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Scene.h"
+#include "Cannon.h"
 #include "Player.h"
+#include <ctime>
 
 // ------------------------------------------------------------------------------
 
@@ -27,6 +29,10 @@ class Level2 : public Game
 private:
     Sprite * backg = nullptr;      // background
     Scene  * scene = nullptr;      // gerenciado de cena
+
+    Cannon* bottomLeftCannon = nullptr;
+    Cannon* bottomRightCannon = nullptr;
+    Cannon* topRightCannon = nullptr;
 
     bool viewBBox = false;         // habilita visualização da bounding box
     bool ctrlKeyB = false;         // controle da tecla B
@@ -38,6 +44,8 @@ public:
     void Update();                 // atualiza lógica do jogo
     void Draw();                   // desenha jogo
     void Finalize();               // finaliza jogo
+
+    clock_t start = clock();
 };
 
 // -----------------------------------------------------------------------------
