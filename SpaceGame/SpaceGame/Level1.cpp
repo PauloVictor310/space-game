@@ -21,12 +21,15 @@
 #include "Bullet.h"
 #include <string>
 #include <fstream>
+#include "Level4.h"
+#include "LevelLose.h"
 using std::ifstream;
 using std::string;
 
 // ------------------------------------------------------------------------------
 
 Scene* Level1::scene = nullptr;
+Player* Level1::player = nullptr;
 
 void Level1::Init()
 {
@@ -37,7 +40,8 @@ void Level1::Init()
     backg = new Sprite("Resources/phase_1_completed.png");
 
     // cria jogador
-    Player * player = new Player();
+    player = new Player(480.0f, 450.0f, BLUE);
+    player->currLevel = LEVEL1;
     scene->Add(player, MOVING);
 
     //Cria e posiciona bbox dos canhões
@@ -96,18 +100,22 @@ void Level1::Finalize()
 void Level1::Update()
 {
     
-    if ((clock() - start) % 50 == 0) {
-        Bullet* bl1 = new Bullet(200, 300);
+    if ((clock() - start) % 123 == 0) {
+        /*Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(leftCannon->X(), leftCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);
 
-        Bullet* bl2 = new Bullet(200, 300);
+        Bullet* bl2 = new Bullet(200, 200);
         bl2->MoveTo(leftCannon->X() + 40, leftCannon->Y() + 7, Layer::UPPER);
         scene->Add(bl2, STATIC);
 
         Bullet* br1 = new Bullet(-200, -300);
         br1->MoveTo(rightCannon->X(), rightCannon->Y(), Layer::UPPER);
         scene->Add(br1, STATIC);
+
+        Bullet* br2 = new Bullet(-250, -100);
+        br2->MoveTo(rightCannon->X() - 40, rightCannon->Y() - 7, Layer::UPPER);
+        scene->Add(br2, STATIC);*/
     }
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
@@ -136,6 +144,18 @@ void Level1::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Muda para o nú“el 2
+    if (player->nextLevel == LEVEL2)
+        Engine::Next<Level2>();
+
+    // Muda para o nú“el 2
+    if (player->nextLevel == LEVELOSE)
+        Engine::Next<LevelLose>();
+
+    // Muda para o nú“el 4
+    if (player->nextLevel == LEVEL4)
+        Engine::Next<Level4>();
 }
 
 // ------------------------------------------------------------------------------

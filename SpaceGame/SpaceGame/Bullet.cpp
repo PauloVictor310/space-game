@@ -22,7 +22,7 @@ Bullet::Bullet(float vx, float vy)
     velY = vy;
     sprite = new Sprite("Resources/blue_bullet.png");
 
-    BBox(new Circle(5));
+    BBox(new Point());
     type = BULLET;
 }
 

@@ -28,12 +28,6 @@ void LevelLose::Init()
 
     // cria background
     backg = new Sprite("Resources/lose_screen.png");
-
-    // cria jogador
-    Player* player = new Player();
-    scene->Add(player, MOVING);
-
-   
 }
 
 // ------------------------------------------------------------------------------

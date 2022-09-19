@@ -1,25 +1,23 @@
 /**********************************************************************************
-// Player (Código Fonte)
-// 
-// Criação:     01 Jan 2013
-// Atualização: 25 Ago 2021
+// Player (C?digo Fonte)
+//
+// Cria??o:     01 Jan 2013
+// Atualiza??o: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Player do jogo Etther
+// Descri??o:   Player do jogo Etther
 //
 **********************************************************************************/
 
 #include "Etther.h"
 #include "Player.h"
 #include "Pivot.h"
-#include "Engine.h"
-#include "LevelLose.h"
 #include "Orb.h"
 #include "Wall.h"
 
 // ---------------------------------------------------------------------------------
 
-Player::Player()
+Player::Player(float initX, float initY, uint color)
 {
     spriteL = new Sprite("Resources/spaceship_red_left.png");
     spriteR = new Sprite("Resources/spaceship_red_right.png");
@@ -30,9 +28,14 @@ Player::Player()
     spriteBlueU = new Sprite("Resources/spaceship_blue_top.png");
     spriteBlueD = new Sprite("Resources/spaceship_blue_down.png");
 
-    // imagem do pacman E48x48 (com borda transparente de 4 pixels)
+    Player::initX = initX;
+    Player::initY = initY;
+    Player::currColor = color;
+    Player::nextColor = color;
+
+    // imagem do pacman ?E48x48 (com borda transparente de 4 pixels)
     BBox(new Rect(-20, -20, 20, 20));
-    MoveTo(480.0f, 450.0f);
+    MoveTo(initX , initY);
     type = PLAYER;
 }
 
@@ -92,7 +95,7 @@ void Player::Right()
 
 // ---------------------------------------------------------------------------------
 
-void Player::OnCollision(Object * obj)
+void Player::OnCollision(Object* obj)
 {
     //if (obj->Type() == PIVOT)
         //PivotCollision(obj);
@@ -109,6 +112,10 @@ void Player::OnCollision(Object * obj)
 
 // ---------------------------------------------------------------------------------
 
+void Player::BulletCollision() {
+    nextLevel = LEVELOSE;
+}
+
 void Player::OrbCollision(Object* obj) {
     Orb* o = (Orb*)obj;
 
@@ -120,13 +127,8 @@ void Player::OrbCollision(Object* obj) {
     }
 }
 
-void Player::BulletCollision() {
-    // volta para a tela de abertura
-    isDead = true;
-}
-
 void Player::WallCollision(Object* obj) {
-    Wall * wall = (Wall*)obj;
+    Wall* wall = (Wall*)obj;
     Player* player = (Player*)obj;
 
     if (wall->color == BLUE && currColor == RED) {
@@ -484,22 +486,94 @@ void Player::Update()
         Stop();
     }
 
-    // atualiza posição
+    // atualiza posi??o
     Translate(velX * gameTime, velY * gameTime);
 
-    // mantém player dentro da tela
-    if (x + 20 < 0)
-        MoveTo(window->Width() + 20.f, Y());
+    // ---------------------------------------------------------------------------------
+    // Movimenta??o do n?vel 1
+    if (currLevel == LEVEL1) {
+        //n?o pode ir para a esquerda
+        if (X() - 20 < 0)
+            MoveTo(20.0f, Y());
 
-    if (x - 20 > window->Width())
-        MoveTo(-20.0f, Y());
+        //direita (muda para o n?vel 2)
+        if (X() - 20 > window->Width()) {
+            nextLevel = LEVEL2;
+        }
 
-    if (Y() + 20 < 0)
-        MoveTo(x, window->Height() + 20.0f);
+        //cima (muda para o n?vel 4) (NAO FIZ)
+        if (Y() + 20 < 0) {
+            MoveTo(X(), window->Height() + 20.0f);
+            nextLevel = LEVEL4;
+        }
 
-    if (Y() - 20 > window->Height())
-        MoveTo(x, -20.0f);
-};
+        //n?o pode ir para baixo
+        if (Y() + 20 > window->Height())
+            MoveTo(X(), window->Height() - 20.0f);
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimenta??o do n?vel 2
+    if (currLevel == LEVEL2) {
+        //esquerda (muda para o n?vel 1)
+        if (X() - 20 < 0) {
+            nextLevel = LEVEL1;
+        }
+
+        //n?o pode ir para a direita
+        if (X() + 20 > window->Width())
+            MoveTo(window->Width() - 20.0f, Y());
+
+        //cima (muda para o n?vel 3)
+        if (Y() + 20 < 0) {
+            nextLevel = LEVEL3;
+        }
+
+        //n?o pode ir para baixo
+        if (Y() + 20 > window->Height())
+            MoveTo(X(), window->Height() - 20.0f);
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimenta??o do n?vel 3
+    if (currLevel == LEVEL3) {
+        //esquerda (muda para o n?vel 4) (NAO FIZ)
+        if (X() - 20 < 0) {
+            nextLevel = LEVEL4;
+        }
+
+        //n?o pode ir para a direita
+        if (X() + 20 > window->Width())
+            MoveTo(window->Width() - 20.0f, Y());
+
+        //n?o pode ir para cima
+        if (Y() - 20 < 0)
+            MoveTo(X(), window->Height() - 20.0f);
+
+        //baixo (muda para o n?vel 2)
+        if (Y() + 20 > window->Height())
+            nextLevel = LEVEL2;
+    }
+    // ---------------------------------------------------------------------------------
+    // Movimenta??o do n?vel 4
+    if (currLevel == LEVEL4) {
+        //n?o pode ir para a esquerda
+        if (X() - 20 < 0)
+            MoveTo(20.0f, Y());
+
+        //direita (muda para o n?vel 3)
+        if (X() - 20 > window->Width()) {
+            nextLevel = LEVEL3;
+        }
+
+        //n?o pode ir para cima
+        if (Y() + 20 < 0) {
+            MoveTo(X(), window->Height() + 20.0f);
+        }
+
+        //baixo (muda para o n?vel 1)
+        if (Y() + 20 > window->Height())
+            nextLevel = LEVEL1;
+    }
+}
 
 // ---------------------------------------------------------------------------------
 
@@ -541,7 +615,7 @@ void Player::Draw()
             }
         }
     }
-    
+
 }
 
 // ---------------------------------------------------------------------------------

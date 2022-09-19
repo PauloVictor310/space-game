@@ -29,10 +29,6 @@ void LevelWin::Init()
 
     // cria background
     backg = new Sprite("Resources/win_screen.png");
-
-    // cria jogador
-    Player* player = new Player();
-    scene->Add(player, MOVING);
 }
 
 // ------------------------------------------------------------------------------

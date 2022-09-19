@@ -23,6 +23,7 @@
 // Constantes Globais
 
 // estados possú“eis para o jogador
+enum PLAYERLEVEL { LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVELWIN, LEVELOSE };
 enum PLAYERSTATE {STOPED, UP, DOWN, LEFT, RIGHT};
 enum PLAYERCOLOR { BLUE, RED };
 
@@ -43,14 +44,18 @@ private:
     float velY = 0;                     // velocidade vertical do player
 
 public:
+    uint currLevel = -1;                // nú“el atual do jogador
+    uint nextLevel = -1;                // próximo nú“el do jogador
     uint currState = STOPED;            // estado atual do jogador
     uint nextState = STOPED;            // próximo estado do jogador
     uint currColor = BLUE;              // cor atual do jogador
     uint nextColor = BLUE;              // cor atual do jogador
 
+    int initX, initY;
+
     bool isDead = false;
 
-    Player();                           // construtor
+    Player(float initX, float initY, uint color);                           // construtor
     ~Player();                          // destrutor
 
     void Stop();                        // pára jogador

@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 3 do jogo Etther
+// Descrição:   Nú“el 3 do jogo Etther
 //
 **********************************************************************************/
 
@@ -21,10 +21,13 @@
 #include "Wall.h"
 #include <string>
 #include <fstream>
+#include "Level2.h"
 using std::ifstream;
 using std::string;
 
 // ------------------------------------------------------------------------------
+
+Player* Level3::player = nullptr;
 
 void Level3::Init()
 {
@@ -35,8 +38,11 @@ void Level3::Init()
     backg = new Sprite("Resources/phase_3_completed.png");
 
     // cria jogador
-    Player* player = new Player();
+    player = new Player(680.0f, 600.0f, RED);
+    player->currLevel = LEVEL3;
     scene->Add(player, MOVING);
+    //temporario
+    //player->currColor = RED;
 
     //Cria e posiciona bbox dos canhões
     Cannon* cannon;
@@ -138,6 +144,14 @@ void Level3::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // Muda para o nú“el 2
+    if (player->nextLevel == LEVEL2)
+        Engine::Next<Level2>();
+
+    // Muda para o nú“el 4
+    if (player->nextLevel == LEVEL4)
+        Engine::Next<Level4>();
 }
 
 // ------------------------------------------------------------------------------
