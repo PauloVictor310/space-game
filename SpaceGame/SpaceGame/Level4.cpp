@@ -51,33 +51,41 @@ void Level4::Init()
 
     Wall* wall;
     wall = new Wall(0, 0, 462, 8);
+    wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() - 143.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(462, 100, 800, 110);
+    wall->color = BLUE;
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 360);
+    wall->color = BLUE;
     wall->MoveTo(window->CenterX() + 470.0f, 0.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 462, 8);
+    wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() - 3.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 487, 8);
+    wall->color = BLUE;
     wall->MoveTo(window->CenterX() - 18.0f, window->CenterY() - 3.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 10, 347);
+    wall->color = BLUE;
     wall->MoveTo(window->CenterX() - 23.0f, window->CenterY() + 6.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 360);
+    wall->color = RED;
     wall->MoveTo(window->CenterX() + 470.0f, window->CenterY());
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 948, 8);
+    wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() + 352.0f);
     scene->Add(wall, STATIC);
 

@@ -24,6 +24,7 @@
 class Wall : public Object
 {
 public:
+    uint color;                                     // cor da parede
     float velX;                                     // velocidade horizontal
     float velY;                                     // velocidade vertical
 

@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Pivot.h"
 #include "Orb.h"
+#include "Wall.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -96,6 +97,9 @@ void Player::OnCollision(Object * obj)
 
     if (obj->Type() == ORB)
         OrbCollision(obj);
+
+    if (obj->Type() == WALL)
+        WallCollision(obj);
 }
 
 // ---------------------------------------------------------------------------------
@@ -108,6 +112,48 @@ void Player::OrbCollision(Object* obj) {
     }
     else if (o->color == RED) {
         currColor = RED;
+    }
+}
+
+void Player::WallCollision(Object* obj) {
+    Wall * wall = (Wall*)obj;
+    Player* player = (Player*)obj;
+
+    if (wall->color == BLUE && currColor == RED) {
+        if (currState == LEFT) {
+            Translate(4, 0);
+            Stop();
+        }
+        else if (currState == UP) {
+            Translate(0, 4);
+            Stop();
+        }
+        else if (currState == RIGHT) {
+            Translate(-4, 0);
+            Stop();
+        }
+        else if (currState == DOWN) {
+            Translate(0, -4);
+            Stop();
+        }
+    }
+    else if (wall->color == RED && currColor == BLUE) {
+        if (currState == LEFT) {
+            Translate(4, 0);
+            Stop();
+        }
+        else if (currState == UP) {
+            Translate(0, 4);
+            Stop();
+        }
+        else if (currState == RIGHT) {
+            Translate(-4, 0);
+            Stop();
+        }
+        else if (currState == DOWN) {
+            Translate(0, -4);
+            Stop();
+        }
     }
 }
 

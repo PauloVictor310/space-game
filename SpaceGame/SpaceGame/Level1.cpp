@@ -53,22 +53,27 @@ void Level1::Init()
 
     Wall* wall;
     wall = new Wall(0, 0, 960, 8);
+    wall->color = RED;
     wall->MoveTo(0.0f, 0.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 10, 374);
+    wall->color = RED;
     wall->MoveTo(window->CenterX() - 24.0f, 8.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 374);
+    wall->color = BLUE;
     wall->MoveTo(window->CenterX() + 470.0f, 8.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 960, 10);
+    wall->color = BLUE;
     wall->MoveTo(0.0f, window->CenterY() + 22.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 328);
+    wall->color = RED;
     wall->MoveTo(window->CenterX() + 470.0f, window->CenterY() + 32.0f);
     scene->Add(wall, STATIC);
 

@@ -60,6 +60,7 @@ public:
     void OnCollision(Object * obj);     // resoluÁ„o da colis„o
     //void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
     void OrbCollision(Object* obj);     // revolve colis„o com orbÅE
+    void WallCollision(Object* obj);    // revolve colis„o com wallE
     
     void Update();                      // atualizaÁ„o do objeto
     void Draw();                        // desenho do objeto

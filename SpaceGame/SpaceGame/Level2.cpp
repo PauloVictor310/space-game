@@ -58,26 +58,32 @@ void Level2::Init()
 
     Wall* wall;
     wall = new Wall(0, 0, 960, 8);
+    wall->color = RED;
     wall->MoveTo(0.0f, 0.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 8, 374);
+    wall->color = BLUE;
     wall->MoveTo(0.0f, 8.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 10, 374);
+    wall->color = BLUE;
     wall->MoveTo(window->CenterX() + 9.0f, 8.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 960, 10);
+    wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() + 22.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 8, 328);
+    wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() + 32.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 10, 328);
+    wall->color = RED;
     wall->MoveTo(window->CenterX() + 9.0f, window->CenterY() + 32.0f);
     scene->Add(wall, STATIC);
 
@@ -85,7 +91,6 @@ void Level2::Init()
     Orb* orb = new Orb(RED);
     orb->MoveTo(160, 271);
     scene->Add(orb, STATIC);
-
     
 }
 
