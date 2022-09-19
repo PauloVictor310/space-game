@@ -23,7 +23,8 @@ enum EttherObjects
     PIVOT,
     ORB,
     WALL,
-    CANNON
+    CANNON,
+    BULLET
 };
 
 // ------------------------------------------------------------------------------

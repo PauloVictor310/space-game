@@ -42,7 +42,7 @@ void Home::Update()
         ctrlKeyESC = true;
     }
 
-    // passa ao primeiro nível com ENTER
+    // passa ao primeiro nú“el com ENTER
     if (window->KeyDown(VK_RETURN))
         Engine::Next<Level1>();
 }

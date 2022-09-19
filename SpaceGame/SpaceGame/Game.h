@@ -37,12 +37,12 @@ public:
     virtual ~Game();                            // destrutor
     
     // Métodos que podem ser sobrescritos para implementar 
-    // funcionalidade específica para o jogo. Eles já possuem
+    // funcionalidade especúƒica para o jogo. Eles jEpossuem
     // uma implementação padrão.
 
     virtual void OnPause();                     // pausa do jogo
 
-    // Estes métodos são puramente virtuais, isto é, devem ser 
+    // Estes métodos são puramente virtuais, isto E devem ser 
     // implementados em todas as classes derivas de Game.
 
     virtual void Init() = 0;                    // inicialização do jogo

@@ -5,8 +5,8 @@
 // AtualizaÁ„o: 13 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// DescriÁ„o:   Graphics È uma classe que faz uso das funÁıes do Direct3D para 
-//              acessar o hardware de aceleraÁ„o gr·fica da placa de vÌdeo.
+// DescriÁ„o:   Graphics ÅEuma classe que faz uso das funÁıes do Direct3D para 
+//              acessar o hardware de aceleraÁ„o gr·fica da placa de v˙Åeo.
 //
 **********************************************************************************/
 
@@ -58,7 +58,7 @@ Graphics::~Graphics()
     // libera swap chain
     if (swapChain)
     {
-        // Direct3D È incapaz de fechar quando em tela cheia
+        // Direct3D ÅEincapaz de fechar quando em tela cheia
         swapChain->SetFullscreenState(false, NULL);
         swapChain->Release();
         swapChain = nullptr;
@@ -99,7 +99,7 @@ bool Graphics::Initialize(Window * window)
     // cria objeto para acessar dispositivo Direct3D
     if FAILED(
         D3D11CreateDevice(
-            NULL,                           // adaptador de vÌdeo (NULL = adaptador padr„o)
+            NULL,                           // adaptador de v˙Åeo (NULL = adaptador padr„o)
             D3D_DRIVER_TYPE_HARDWARE,       // tipo de driver D3D (Hardware, Reference ou Software)
             NULL,                           // ponteiro para rasterizador em software
             createDeviceFlags,              // modo de depuraÁ„o ou modo normal
@@ -133,7 +133,7 @@ bool Graphics::Initialize(Window * window)
     if FAILED(device->QueryInterface(__uuidof(IDXGIDevice), (void**) &dxgiDevice))
         return false;
 
-    // cria objeto para adaptador de vÌdeo (placa gr·fica)
+    // cria objeto para adaptador de v˙Åeo (placa gr·fica)
     IDXGIAdapter * dxgiAdapter = nullptr;
     if FAILED(dxgiDevice->GetParent(__uuidof(IDXGIAdapter), (void**) &dxgiAdapter))
         return false;
@@ -152,15 +152,15 @@ bool Graphics::Initialize(Window * window)
     swapDesc.BufferDesc.Width = uint(window->Width());          // largura do backbuffer
     swapDesc.BufferDesc.Height = uint(window->Height());        // altura do backbuffer
     swapDesc.BufferDesc.RefreshRate.Numerator = 60;             // taxa de atualizaÁ„o em hertz 
-    swapDesc.BufferDesc.RefreshRate.Denominator = 1;            // numerador È um inteiro e n„o um racional
+    swapDesc.BufferDesc.RefreshRate.Denominator = 1;            // numerador ÅEum inteiro e n„o um racional
     swapDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;    // formato de cores RGBA 8 bits
     swapDesc.SampleDesc.Count = 1;                              // amostras por pixel (antialiasing)
-    swapDesc.SampleDesc.Quality = 0;                            // nÌvel de qualidade da imagem
-    swapDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;     // utilize superfÌcie como RENDER-TARGET
+    swapDesc.SampleDesc.Quality = 0;                            // n˙ìel de qualidade da imagem
+    swapDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;     // utilize superf˙Äie como RENDER-TARGET
     swapDesc.BufferCount = 2;                                   // n˙mero de buffers (front + back)
     swapDesc.OutputWindow = window->Id();                       // identificador da janela
     swapDesc.Windowed = (window->Mode() != FULLSCREEN);         // modo janela ou tela cheia
-    swapDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;        // descarta superfÌcie apÛs apresentaÁ„o
+    swapDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;        // descarta superf˙Äie apÛs apresentaÁ„o
     swapDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;    // muda a resoluÁ„o do monitor em tela cheia
 
     // cria uma swap chain
@@ -175,7 +175,7 @@ bool Graphics::Initialize(Window * window)
     // Render Target
     // -------------------------------
 
-    // pega a superfÌcie backbuffer de uma swapchain
+    // pega a superf˙Äie backbuffer de uma swapchain
     ID3D11Texture2D * backBuffer = nullptr;
     if FAILED(swapChain->GetBuffer(0, __uuidof(backBuffer), (void**)(&backBuffer)))
         return false;
@@ -209,7 +209,7 @@ bool Graphics::Initialize(Window * window)
     // EquaÁ„o de mistura de cores (blending):
     // finalColor = SrcColor * SrcBlend <OP> DestColor * DestBlend
 
-    // Combinando superfÌcies transparentes (Alpha Blending)
+    // Combinando superf˙Äies transparentes (Alpha Blending)
     // finalColor = SrcColor * ScrAlpha + DestColor * (1-SrcAlpha)
 
     D3D11_BLEND_DESC blendDesc = { };
@@ -217,10 +217,10 @@ bool Graphics::Initialize(Window * window)
     blendDesc.IndependentBlendEnable = false;                               // usa mesma mistura para todos os render targets
     blendDesc.RenderTarget[0].BlendEnable = true;                           // habilita o blending
     blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;             // fator de mistura da fonte 
-    blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;        // destino da mistura RGB È o alpha invertido 
+    blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;        // destino da mistura RGB ÅEo alpha invertido 
     blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;                 // operaÁ„o de adiÁ„o na mistura de cores
-    blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;              // fonte da mistura Alpha È o alpha do pixel shader
-    blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;            // destino da mistura Alpha È o alpha invertido
+    blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;              // fonte da mistura Alpha ÅEo alpha do pixel shader
+    blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;            // destino da mistura Alpha ÅEo alpha invertido
     blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;            // operaÁ„o de adiÁ„o na mistura de cores
     blendDesc.RenderTarget[0].RenderTargetWriteMask = 0x0F;                 // componentes de cada pixel que podem ser sobrescritos
 

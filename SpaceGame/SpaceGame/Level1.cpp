@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 1 do jogo Etther
+// Descrição:   Nú“el 1 do jogo Etther
 //
 **********************************************************************************/
 
@@ -18,6 +18,7 @@
 #include "Pivot.h"
 #include "Cannon.h"
 #include "Wall.h"
+#include "Bullet.h"
 #include <string>
 #include <fstream>
 using std::ifstream;
@@ -38,15 +39,14 @@ void Level1::Init()
     scene->Add(player, MOVING);
 
     //Cria e posiciona bbox dos canhões
-    Cannon* cannon;
     //left cannon
-    cannon = new Cannon(-35, -34, 35, 34);
-    cannon->MoveTo(34, 34);
-    scene->Add(cannon, STATIC);
+    leftCannon = new Cannon(-35, -34, 35, 34);
+    leftCannon->MoveTo(34, 34);
+    scene->Add(leftCannon, STATIC);
     //right cannon
-    cannon = new Cannon(-36, -31, 36, 31);
-    cannon->MoveTo(914, 436);
-    scene->Add(cannon, STATIC);
+    rightCannon = new Cannon(-36, -31, 36, 31);
+    rightCannon->MoveTo(914, 436);
+    scene->Add(rightCannon, STATIC);
 
     // -----------------------------------------
     // posição das paredes
@@ -88,6 +88,7 @@ void Level1::Finalize()
 
 void Level1::Update()
 {
+    
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))
     {

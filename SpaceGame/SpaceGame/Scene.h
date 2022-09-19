@@ -7,7 +7,7 @@
 //
 // DescriÁ„o:   Define uma classe para gerenciar o cen·rio do jogo.
 //                
-//              Um gerenciador de cena È respons·vel por guardar os objetos
+//              Um gerenciador de cena ÅErespons·vel por guardar os objetos
 //              da cena, atualizando-os e desenhando-os de forma mais pr·tica.
 //              Ele pode ser usado tambÈm para outras tarefas que impliquem em
 //              percorrer a lista de objetos, como detecÁ„o de colis„o.
@@ -49,19 +49,19 @@ private:
     list<Object*>::iterator itm;                // iterador para elemento em movimento
     list<Object*>::iterator it;                 // iterador para elemento atual
 
-    int processing = STATIC;                    // indica qual lista de objetos est· sendo processada
+    int processing = STATIC;                    // indica qual lista de objetos estÅEsendo processada
 
     bool Collision(Point * p, Point * q);       // colis„o entre ponto e ponto
     bool Collision(Point * p, Rect * r);        // colis„o entre ponto e ret‚ngulo    
-    bool Collision(Point * p, Circle * c);      // colis„o entre ponto e cÌrculo
+    bool Collision(Point * p, Circle * c);      // colis„o entre ponto e c˙èculo
 
     bool Collision(Rect * ra, Rect * rb);       // colis„o entre ret‚ngulos
     bool Collision(Rect * r, Point * p);        // colis„o entre ret‚ngulo e ponto (inline)
-    bool Collision(Rect * r, Circle * c);       // colis„o entre ret‚ngulo e cÌrculo
+    bool Collision(Rect * r, Circle * c);       // colis„o entre ret‚ngulo e c˙èculo
 
-    bool Collision(Circle * ca, Circle * cb);   // colis„o entre cÌrculos
-    bool Collision(Circle * c, Point * p);      // colis„o entre cÌrculo e ponto (inline)
-    bool Collision(Circle * c, Rect * r);       // colis„o entre cÌrculo e ret‚ngulo (inline)
+    bool Collision(Circle * ca, Circle * cb);   // colis„o entre c˙èculos
+    bool Collision(Circle * c, Point * p);      // colis„o entre c˙èculo e ponto (inline)
+    bool Collision(Circle * c, Rect * r);       // colis„o entre c˙èculo e ret‚ngulo (inline)
 
     bool Collision(Mixed * m, Geometry * s);    // colis„o entre geometria mista e uma forma qualquer
     bool Collision(Geometry * s, Mixed * m);    // colis„o entre geometria mista e uma forma qualquer (inline)
@@ -76,7 +76,7 @@ public:
     void Remove(Object* obj, int type);         // remove objeto da cena sem deletar
     void Remove();                              // remove objeto sendo processado na cena sem deletar
     void Delete(Object * obj, int type);        // deleta objeto da lista indicada (STATIC ou MOVING)
-    void Delete();                              // deleta o objeto cujo Update/Draw est· sendo executado
+    void Delete();                              // deleta o objeto cujo Update/Draw estÅEsendo executado
     uint Size();                                // retorna a quantidade de objetos na cena
 
     void Begin();                               // inicia percurso na lista de objetos
@@ -86,7 +86,7 @@ public:
     void Draw();                                // desenha todos os objetos da cena
     void DrawBBox();                            // desenha a bounding box dos objetos na cena
 
-    bool Collision(Object * oa, Object * ob);   // verifica se h· colis„o entre dois objetos
+    bool Collision(Object * oa, Object * ob);   // verifica se hÅEcolis„o entre dois objetos
     void CollisionDetection();                  // trata a colis„o entre objetos da cena
 };
 
@@ -97,11 +97,11 @@ public:
 inline bool Scene::Collision(Rect* r, Point* p)
 { return Collision(p, r); }
 
-// colis„o entre cÌrculo e ponto
+// colis„o entre c˙èculo e ponto
 inline bool Scene::Collision(Circle* c, Point* p)
 { return Collision(p, c); }
 
-// colis„o entre cÌrculo e ret‚ngulo
+// colis„o entre c˙èculo e ret‚ngulo
 inline bool Scene::Collision(Circle* c, Rect* r)
 {     return Collision(r, c); }
 

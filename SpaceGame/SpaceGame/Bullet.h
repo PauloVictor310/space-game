@@ -1,16 +1,16 @@
 /**********************************************************************************
-// Orb (Arquivo de Cabeçalho)
-// 
+// Bullet (Arquivo de Cabeçalho)
+//
 // Criação:     18 Set 2022
 //
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Orbs do Etther
+// Descrição:   Bullets do Etther
 //
 **********************************************************************************/
 
-#ifndef _ETTHER_ORB_H_
-#define _ETTHER_ORB_H_
+#ifndef _ETTHER_Bullet_H_
+#define _ETTHER_Bullet_H_
 
 // ---------------------------------------------------------------------------------
 // Inclusões
@@ -18,21 +18,31 @@
 #include "Types.h"                        // tipos especúŸicos da engine
 #include "Object.h"                       // interface de Object
 #include "Player.h"
+#include "Scene.h"
 
 // ---------------------------------------------------------------------------------
 
-class Orb : public Object
+class Bullet : public Object
 {
+private:
+    Sprite* sprite = nullptr;
+
 public:
-    uint color;
 
-    Orb(uint c);                          // construtor
-    ~Orb();                               // destrutor
+    Bullet(int x, int y);                          // construtor
+    ~Bullet();                               // destrutor
 
-    void Update() {};                     // atualização
-    void Draw() {};                       // desenho
+    float velX; // velocidade no eixo X
+    float velY; // velocidade no eixo Y]
+
+    void Update();                     // atualização
+    void Draw();                       // desenho
 };
 
+inline void Bullet::Draw()
+{
+    sprite->Draw(x, y, z);
+}
 // ---------------------------------------------------------------------------------
 
 #endif

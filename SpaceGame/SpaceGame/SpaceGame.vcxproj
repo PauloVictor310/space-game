@@ -163,6 +163,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Food.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Food.h" />

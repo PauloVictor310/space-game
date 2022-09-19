@@ -25,7 +25,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Mode(WINDOWED);
     engine->window->Size(960, 720);
     engine->window->Color(25, 25, 25);
-    engine->window->Title("Ether");
+    engine->window->Title("Etther");
     engine->window->Icon(IDI_ICON);
 
     // configura dispositivo gráfico

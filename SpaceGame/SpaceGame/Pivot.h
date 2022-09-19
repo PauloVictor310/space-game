@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------------
 // Inclusões
 
-#include "Types.h"                          // tipos especíƒicos da engine
+#include "Types.h"                          // tipos especúŸicos da engine
 #include "Object.h"                         // interface de Object
 
 // ---------------------------------------------------------------------------------

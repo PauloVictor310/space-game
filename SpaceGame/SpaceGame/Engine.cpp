@@ -1,16 +1,16 @@
 /**********************************************************************************
-// Engine (Código Fonte)
+// Engine (C?digo Fonte)
 //
-// Criação:     15 Mai 2014
-// Atualização: 13 Ago 2021
+// Cria??o:     15 Mai 2014
+// Atualiza??o: 13 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   A função da Engine é rodar jogos criados a partir da classe
+// Descri??o:   A fun??o da Engine ? rodar jogos criados a partir da classe
 //              abstrata Game. Todo jogo deve ser uma classe derivada de Game
-//              e portanto deve implementar as funções membro Init, Update, Draw
-//              e Finalize, que serão chamadas pelo motor em um laço de tempo real.
-//              Para usar a classe Engine, o programador deve criar uma instância
-//              e chamar o método Start(), passando um objeto derivado de Game.
+//              e portanto deve implementar as fun??es membro Init, Update, Draw
+//              e Finalize, que ser?o chamadas pelo motor em um la?o de tempo real.
+//              Para usar a classe Engine, o programador deve criar uma inst?ncia
+//              e chamar o m?todo Start(), passando um objeto derivado de Game.
 //
 **********************************************************************************/
 
@@ -20,23 +20,23 @@
 using std::stringstream;
 
 // ------------------------------------------------------------------------------
-// Inicialização de variáveis estáticas da classe
+// Inicializa??o de vari?veis est?ticas da classe
 
-Game     * Engine::game      = nullptr;     // jogo em execução
-Window   * Engine::window    = nullptr;     // janela do jogo
-Graphics * Engine::graphics  = nullptr;     // dispositivo gráfico
-Renderer * Engine::renderer  = nullptr;     // renderizador de sprites 
+Game* Engine::game = nullptr;     // jogo em execu??o
+Window* Engine::window = nullptr;     // janela do jogo
+Graphics* Engine::graphics = nullptr;     // dispositivo gr?fico
+Renderer* Engine::renderer = nullptr;     // renderizador de sprites 
 float      Engine::frameTime = 0.0f;        // tempo do quadro atual
-bool       Engine::paused    = false;       // estado do game loop
+bool       Engine::paused = false;       // estado do game loop
 Timer      Engine::timer;                   // medidor de tempo
 
 // -------------------------------------------------------------------------------
 
 Engine::Engine()
 {
-    window     = new Window();
-    graphics   = new Graphics();
-    renderer   = new Renderer();
+    window = new Window();
+    graphics = new Graphics();
+    renderer = new Renderer();
 }
 
 // -------------------------------------------------------------------------------
@@ -58,19 +58,19 @@ int Engine::Start(Game* level)
     // cria janela do jogo
     window->Create();
 
-    // inicializa dispositivo gráfico
+    // inicializa dispositivo gr?fico
     graphics->Initialize(window);
 
     // inicializa renderizador de sprites
     renderer->Initialize(window, graphics);
 
-    // ajusta a resolução do Sleep para 1 milisegundo
+    // ajusta a resolu??o do Sleep para 1 milisegundo
     // requer uso da biblioteca winmm.lib
     timeBeginPeriod(1);
 
     int exitCode = Loop();
 
-    // volta a resolução do Sleep ao valor original
+    // volta a resolu??o do Sleep ao valor original
     timeEndPeriod(1);
 
     return exitCode;
@@ -99,7 +99,7 @@ int Engine::Loop()
     // inicia contagem de tempo
     timer.Start();
 
-    // inicialização do jogo
+    // inicializa??o do jogo
     game->Init();
 
     // mensagens do Windows
@@ -108,7 +108,7 @@ int Engine::Loop()
     // controle da tecla Pause (VK_PAUSE)
     bool pauseKeyCtrl = true;
 
-    // laço principal do jogo
+    // la?o principal do jogo
     do
     {
         // testa se tem mensagem do windows para tratar
@@ -139,7 +139,7 @@ int Engine::Loop()
             }
             else
             {
-                // somente após liberação da tecla
+                // somente ap?s libera??o da tecla
                 if (window->KeyUp(VK_PAUSE))
                     pauseKeyCtrl = true;
             }
@@ -151,10 +151,10 @@ int Engine::Loop()
                 // calcula o tempo do quadro
                 frameTime = FrameTime();
 
-                // atualização do jogo 
+                // atualiza??o do jogo 
                 game->Update();
 
-                // limpa a tela para o próximo quadro
+                // limpa a tela para o pr?ximo quadro
                 graphics->Clear();
 
                 // desenha o jogo
@@ -177,10 +177,10 @@ int Engine::Loop()
 
     } while (msg.message != WM_QUIT);
 
-    // finalização do jogo
+    // finaliza??o do jogo
     game->Finalize();
 
-    // encerra aplicação
+    // encerra aplica??o
     return int(msg.wParam);
 }
 
@@ -192,10 +192,10 @@ float Engine::FrameTime()
     static float totalTime = 0.0f;    // tempo total transcorrido 
     static uint  frameCount = 0;      // contador de frames transcorridos
 #endif
-    
+
     // tempo do frame atual em segundos
     frameTime = timer.Reset();
-    
+
 #ifdef _DEBUG
     // tempo acumulado dos frames
     totalTime += frameTime;
@@ -207,8 +207,8 @@ float Engine::FrameTime()
     if (totalTime >= 1.0f)
     {
         stringstream text;            // fluxo de texto para mensagens
-        text << std::fixed;           // sempre mostra a parte fracionária
-        text.precision(3);            // três casas depois da vírgula
+        text << std::fixed;           // sempre mostra a parte fracion?ria
+        text.precision(3);            // tr?s casas depois da v?rgula
 
         text << window->Title().c_str() << "    "
             << "FPS: " << frameCount << "    "
