@@ -40,11 +40,11 @@ void Level2::Init()
 
     // cria jogador
     if (Engine::comingFrom == ELEVEL1) {
-        if (Engine::currentY > 360) {
+        if (Engine::currentY > window->CenterY() + 30) {
             player = new Player(60.0f, Engine::currentY, RED);
         }
         else {
-            player = new Player(60.0f, Engine::currentY, BLUE);
+            player = new Player(60.0f, Engine::currentY - 10, BLUE);
             
         }
         
