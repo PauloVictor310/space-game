@@ -11,6 +11,7 @@
 
 #include "Engine.h"
 #include "Home.h"
+#include "Level1.h"
 #include "LevelLose.h"
 #include "Player.h"
 #include "Pivot.h"
@@ -54,6 +55,10 @@ void LevelLose::Update()
         scene->Update();
         scene->CollisionDetection();
     }
+
+    // passa ao primeiro nú“el com ENTER
+    if (window->KeyDown(VK_RETURN))
+        Engine::Next<Level1>();
 }
 
 // ------------------------------------------------------------------------------
