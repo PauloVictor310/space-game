@@ -120,7 +120,7 @@ void Level3::Finalize()
 void Level3::Update()
 {
 
-    if ((clock() - start) % 233 == 0) {
+    if ((clock() - start) % 233 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(300, 20);
         bl1->MoveTo(bottomLeftCannon->X() + 20, bottomLeftCannon->Y() - 17, Layer::UPPER);
         scene->Add(bl1, STATIC);
@@ -139,7 +139,7 @@ void Level3::Update()
 
     }
 
-    if ((clock() - start) % 205 == 0) {
+    if ((clock() - start) % 205 == 0 && hasMissile) {
 
         Bullet* br1 = new Bullet(300, 300);
         br1->MoveTo(topLeftCannon->X() + 20, topLeftCannon->Y() + 7, Layer::UPPER);
@@ -151,6 +151,15 @@ void Level3::Update()
 
     }
     
+    if (ctrlKeyE && window->KeyDown('E'))
+    {
+        hasMissile = !hasMissile;
+        ctrlKeyE = false;
+    }
+    else if (window->KeyUp('E'))
+    {
+        ctrlKeyE = true;
+    }
 
     // habilita/desabilita bounding box
     if (ctrlKeyB && window->KeyDown('B'))

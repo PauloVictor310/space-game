@@ -100,7 +100,7 @@ void Level1::Finalize()
 void Level1::Update()
 {
     
-    if ((clock() - start) % 123 == 0) {
+    if ((clock() - start) % 123 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(leftCannon->X(), leftCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);
@@ -126,6 +126,16 @@ void Level1::Update()
     else if (window->KeyUp('B'))
     {
         ctrlKeyB = true;
+    }
+
+    if (ctrlKeyE && window->KeyDown('E'))
+    {
+        hasMissile = !hasMissile;
+        ctrlKeyE = false;
+    }
+    else if (window->KeyUp('E'))
+    {
+        ctrlKeyE = true;
     }
     
     if (window->KeyDown(VK_ESCAPE))

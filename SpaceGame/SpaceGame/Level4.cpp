@@ -124,7 +124,7 @@ void Level4::Finalize()
 void Level4::Update()
 {
 
-    if ((clock() - start) % 137 == 0) {
+    if ((clock() - start) % 137 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(topCannon->X(), topCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);
@@ -140,6 +140,16 @@ void Level4::Update()
         Bullet* br2 = new Bullet(250, 400);
         br2->MoveTo(bottomCannon->X() - 10, bottomCannon->Y() + 7, Layer::UPPER);
         scene->Add(br2, STATIC);
+    }
+
+    if (ctrlKeyE && window->KeyDown('E'))
+    {
+        hasMissile = !hasMissile;
+        ctrlKeyE = false;
+    }
+    else if (window->KeyUp('E'))
+    {
+        ctrlKeyE = true;
     }
     
 

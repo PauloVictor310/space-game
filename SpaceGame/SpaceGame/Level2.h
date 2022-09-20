@@ -34,6 +34,9 @@ private:
     Cannon* bottomRightCannon = nullptr;
     Cannon* topRightCannon = nullptr;
 
+    bool hasMissile = true;
+    bool ctrlKeyE = false;         // controle da tecla B
+
     bool viewBBox = false;         // habilita visualização da bounding box
     bool ctrlKeyB = false;         // controle da tecla B
 
