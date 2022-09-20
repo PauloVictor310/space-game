@@ -41,7 +41,13 @@ void Level1::Init()
 
     // cria jogador
     if (Engine::comingFrom == ELEVEL2) {
-        player = new Player(900, Engine::currentY, BLUE);
+        if (Engine::currentY > 360) {
+            player = new Player(900, Engine::currentY, RED);
+        }
+        else {
+            player = new Player(900, Engine::currentY, BLUE);
+        }
+        
     }
     else if (Engine::comingFrom == ELEVEL4) {
         player = new Player(Engine::currentX, 30, RED);
@@ -109,7 +115,7 @@ void Level1::Finalize()
 void Level1::Update()
 {
     
-    if ((clock() - start) % 123 == 0 && hasMissile) {
+    if ((clock() - start) % 53 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(leftCannon->X(), leftCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);

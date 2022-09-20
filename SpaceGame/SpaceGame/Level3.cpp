@@ -45,7 +45,13 @@ void Level3::Init()
         player = new Player(Engine::currentX, 690.0f, RED);
     }
     else {
-        player = new Player(30.0, Engine::currentY, BLUE);
+        if (Engine::currentY < 360) {
+            player = new Player(40.0, Engine::currentY, BLUE);
+        }
+        else {
+            player = new Player(40.0, Engine::currentY, RED);
+        }
+        
     }
 
     
@@ -127,7 +133,7 @@ void Level3::Finalize()
 void Level3::Update()
 {
 
-    if ((clock() - start) % 233 == 0 && hasMissile) {
+    if ((clock() - start) % 55 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(300, 20);
         bl1->MoveTo(bottomLeftCannon->X() + 20, bottomLeftCannon->Y() - 17, Layer::UPPER);
         scene->Add(bl1, STATIC);
@@ -146,7 +152,7 @@ void Level3::Update()
 
     }
 
-    if ((clock() - start) % 205 == 0 && hasMissile) {
+    if ((clock() - start) % 46 == 0 && hasMissile) {
 
         Bullet* br1 = new Bullet(300, 300);
         br1->MoveTo(topLeftCannon->X() + 20, topLeftCannon->Y() + 7, Layer::UPPER);

@@ -42,10 +42,16 @@ void Level4::Init()
 
     // cria jogador
     if (Engine::comingFrom == ELEVEL3) {
-        player = new Player(870.0f, Engine::currentY, BLUE);
+        if (Engine::currentY < 360) {
+            player = new Player(870.0f, Engine::currentY, BLUE);
+        }
+        else {
+            player = new Player(870.0f, Engine::currentY, RED);
+        }
+        
     }
     else {
-        player = new Player(Engine::currentX, 30, RED);
+        player = new Player(Engine::currentX, 690, RED);
     }
     
     player->currLevel = LEVEL4;
@@ -130,7 +136,7 @@ void Level4::Finalize()
 void Level4::Update()
 {
 
-    if ((clock() - start) % 137 == 0 && hasMissile) {
+    if ((clock() - start) % 62 == 0 && hasMissile) {
         Bullet* bl1 = new Bullet(200, 300);
         bl1->MoveTo(topCannon->X(), topCannon->Y(), Layer::UPPER);
         scene->Add(bl1, STATIC);
@@ -205,8 +211,12 @@ void Level4::Update()
         
 
     // Muda para o nú“el 3
-    if (player->nextLevel == LEVEL3)
+    if (player->nextLevel == LEVEL3) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL4;
         Engine::Next<Level3>();
+    }
 }
 
 // ------------------------------------------------------------------------------
