@@ -40,7 +40,16 @@ void Level1::Init()
     backg = new Sprite("Resources/phase_1_completed.png");
 
     // cria jogador
-    player = new Player(480.0f, 450.0f, BLUE);
+    if (Engine::comingFrom == ELEVEL2) {
+        player = new Player(900, Engine::currentY, BLUE);
+    }
+    else if (Engine::comingFrom == ELEVEL4) {
+        player = new Player(Engine::currentX, 30, RED);
+    }
+    else {
+        player = new Player(480, 450, BLUE);
+    }
+    
     player->currLevel = LEVEL1;
     scene->Add(player, MOVING);
 
@@ -146,6 +155,9 @@ void Level1::Update()
     else if (window->KeyDown('N'))
     {
         // passa manualmente para o próximo nú“el
+        Engine::currentX = 60;
+        Engine::currentY = 200;
+        Engine::comingFrom = ELEVEL1;
         Engine::Next<Level2>();
     }
     else
@@ -156,16 +168,26 @@ void Level1::Update()
     }
 
     // Muda para o nú“el 2
-    if (player->nextLevel == LEVEL2)
+    if (player->nextLevel == LEVEL2) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL1;
         Engine::Next<Level2>();
+    }
+        
 
     // Muda para o nú“el 2
     if (player->nextLevel == LEVELOSE)
         Engine::Next<LevelLose>();
 
     // Muda para o nú“el 4
-    if (player->nextLevel == LEVEL4)
+    if (player->nextLevel == LEVEL4) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL1;
         Engine::Next<Level4>();
+    }
+        
 }
 
 // ------------------------------------------------------------------------------

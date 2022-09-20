@@ -27,6 +27,9 @@
 
 // ---------------------------------------------------------------------------------
 
+enum EnginePosition{ ELEFT, ERIGHT, EUP, EDOWN };
+enum ComingFrom { EHOME, ELEVEL1, ELEVEL2, ELEVEL3, ELEVEL4 };
+
 class Engine
 {
 private:
@@ -42,6 +45,11 @@ public:
     static Graphics* graphics;          // dispositivo gr?fico
     static Renderer* renderer;          // renderizador de sprites
     static float      frameTime;         // tempo do quadro atual
+
+    static float currentX;
+    static float currentY;
+    static uint position;
+    static uint comingFrom;
 
     Engine();                            // construtor
     ~Engine();                           // destrutor

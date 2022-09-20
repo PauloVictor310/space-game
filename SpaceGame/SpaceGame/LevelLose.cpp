@@ -57,8 +57,11 @@ void LevelLose::Update()
     }
 
     // passa ao primeiro nú“el com ENTER
-    if (window->KeyDown(VK_RETURN))
+    if (window->KeyDown(VK_RETURN)) {
+        Engine::comingFrom = EHOME;
         Engine::Next<Level1>();
+    }
+        
 }
 
 // ------------------------------------------------------------------------------

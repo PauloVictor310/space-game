@@ -41,7 +41,13 @@ void Level4::Init()
     backg = new Sprite("Resources/phase_4_completed.png");
 
     // cria jogador
-    player = new Player(870.0f, 100.0f, BLUE);
+    if (Engine::comingFrom == ELEVEL3) {
+        player = new Player(870.0f, Engine::currentY, BLUE);
+    }
+    else {
+        player = new Player(Engine::currentX, 30, RED);
+    }
+    
     player->currLevel = LEVEL4;
     scene->Add(player, MOVING);
     //left top cannon
@@ -190,8 +196,13 @@ void Level4::Update()
         Engine::Next<LevelWin>();
 
     // Muda para o nú“el 1
-    if (player->nextLevel == LEVEL1)
+    if (player->nextLevel == LEVEL1) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL4;
         Engine::Next<Level1>();
+    }
+        
 
     // Muda para o nú“el 3
     if (player->nextLevel == LEVEL3)

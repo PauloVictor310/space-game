@@ -41,7 +41,14 @@ void Level3::Init()
     backg = new Sprite("Resources/phase_3_completed.png");
 
     // cria jogador
-    player = new Player(680.0f, 690.0f, RED);
+    if (Engine::comingFrom == ELEVEL2) {
+        player = new Player(Engine::currentX, 690.0f, RED);
+    }
+    else {
+        player = new Player(30.0, Engine::currentY, BLUE);
+    }
+
+    
     player->currLevel = LEVEL3;
     scene->Add(player, MOVING);
     //temporario
@@ -180,6 +187,9 @@ void Level3::Update()
     else if (window->KeyDown('K'))
     {
         // passa manualmente para o próximo nú“el
+        Engine::currentX = 870;
+        Engine::currentY = 100;
+        Engine::comingFrom = ELEVEL3;
         Engine::Next<Level4>();
     }
     else
@@ -194,12 +204,20 @@ void Level3::Update()
         Engine::Next<LevelLose>();
 
     // Muda para o nú“el 2
-    if (player->nextLevel == LEVEL2)
+    if (player->nextLevel == LEVEL2) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL3;
         Engine::Next<Level2>();
+    }
 
     // Muda para o nú“el 4
-    if (player->nextLevel == LEVEL4)
+    if (player->nextLevel == LEVEL4) {
+        Engine::currentX = player->X();
+        Engine::currentY = player->Y();
+        Engine::comingFrom = ELEVEL3;
         Engine::Next<Level4>();
+    }
 }
 
 // ------------------------------------------------------------------------------

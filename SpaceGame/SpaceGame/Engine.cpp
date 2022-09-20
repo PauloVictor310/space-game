@@ -29,6 +29,10 @@ Renderer* Engine::renderer = nullptr;     // renderizador de sprites
 float      Engine::frameTime = 0.0f;        // tempo do quadro atual
 bool       Engine::paused = false;       // estado do game loop
 Timer      Engine::timer;                   // medidor de tempo
+float Engine::currentX = 480.0f;
+float Engine::currentY = 450.0f;
+uint Engine::position = ERIGHT;
+uint Engine::comingFrom = EHOME;
 
 // -------------------------------------------------------------------------------
 
