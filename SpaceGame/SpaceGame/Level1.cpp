@@ -63,9 +63,9 @@ void Level1::Init()
     wall->MoveTo(0.0f, 0.0f);
     scene->Add(wall, STATIC);
 
-    wall = new Wall(0, 0, 10, 374);
+    wall = new Wall(0, 0, 8, 355);
     wall->color = RED;
-    wall->MoveTo(window->CenterX() - 24.0f, 8.0f);
+    wall->MoveTo(window->CenterX() - 23.0f, 8.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 374);

@@ -40,7 +40,7 @@ private:
     Sprite* spriteBlueR = nullptr;      // sprite do player azul indo para direita
     Sprite* spriteBlueU = nullptr;      // sprite do player azul indo para cima
     Sprite* spriteBlueD = nullptr;      // sprite do player azul indo para baixo
-    bool keyCtrl;               // controla pressionamento de tecla
+    bool keyCtrl;                       // controla pressionamento de tecla
     float velX = 0;                     // velocidade horizontal do player
     float velY = 0;                     // velocidade vertical do player
 
@@ -52,12 +52,12 @@ public:
     uint currColor = BLUE;              // cor atual do jogador
     uint nextColor = BLUE;              // cor atual do jogador
 
-    int initX, initY;
+    float initX, initY;
 
     bool isDead = false;
 
-    Player(float initX, float initY, uint color);                           // construtor
-    ~Player();                          // destrutor
+    Player(float initX, float initY, uint color);   // construtor
+    ~Player();                                      // destrutor
 
     void Stop();                        // p·ra jogador
     void Up();                          // muda direÁ„o para cima
@@ -66,10 +66,10 @@ public:
     void Right();                       // muda direÁ„o para direita
 
     void OnCollision(Object * obj);     // resoluÁ„o da colis„o
-    //void PivotCollision(Object * obj);  // revolve colis„o com pivÅE
+    //void PivotCollision(Object * obj);// revolve colis„o com pivÅE
     void OrbCollision(Object* obj);     // revolve colis„o com orbÅE
     void WallCollision(Object* obj);    // revolve colis„o com wallE
-    void BulletCollision();     // revolve colis„o com orbÅE
+    void BulletCollision();             // revolve colis„o com orbÅE
     
     void Update();                      // atualizaÁ„o do objeto
     void Draw();                        // desenho do objeto

@@ -64,9 +64,9 @@ void Level4::Init()
     wall->MoveTo(782.0f, 0.0f);
     scene->Add(wall, STATIC);
 
-    wall = new Wall(0, 0, 630, 8);
+    wall = new Wall(0, 0, 610, 6);
     wall->color = RED;
-    wall->MoveTo(162.0f, window->CenterY() - 143.0f);
+    wall->MoveTo(172.0f, window->CenterY() - 141.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 13, 360);
@@ -74,14 +74,14 @@ void Level4::Init()
     wall->MoveTo(window->CenterX() + 470.0f, 0.0f);
     scene->Add(wall, STATIC);
 
-    wall = new Wall(0, 0, 462, 8);
+    wall = new Wall(0, 0, 450, 8);
     wall->color = RED;
     wall->MoveTo(0.0f, window->CenterY() - 3.0f);
     scene->Add(wall, STATIC);
 
-    wall = new Wall(0, 0, 487, 8);
+    wall = new Wall(0, 0, 478, 8);
     wall->color = BLUE;
-    wall->MoveTo(window->CenterX() - 18.0f, window->CenterY() - 3.0f);
+    wall->MoveTo(window->CenterX() - 8.0f, window->CenterY() - 3.0f);
     scene->Add(wall, STATIC);
 
     wall = new Wall(0, 0, 10, 347);
