@@ -198,8 +198,11 @@ void Level4::Update()
         Engine::Next<LevelLose>();
 
     // Player Perdeu
-    if (player->nextLevel == LEVELWIN)
+    if (player->nextLevel == LEVELWIN) {
+        Engine::comingFrom = ELEVEL4;
         Engine::Next<LevelWin>();
+    }
+        
 
     // Muda para o nú“el 1
     if (player->nextLevel == LEVEL1) {
